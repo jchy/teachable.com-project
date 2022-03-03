@@ -1,0 +1,64 @@
+
+.navbar{
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-left: 10%;
+}
+
+.logo{
+   margin-top: 20px;
+}
+
+.navtext{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.navtext > div{
+    margin-left: 4%;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.dropdowntext{
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.login{
+    padding-left: 10%;
+}
+
+.getstarted{
+    border-left: 1px solid black;
+    padding: 20px;
+}
+
+.menuicon{
+    display: none;
+}
+
+
+@media screen and (max-width: 1022px) {
+    .navbar{
+        width: 100%;
+        align-items: center;
+    }
+    .navtext{
+        display: none;
+    }
+    .getstarted{
+        display: none;
+    }
+    .menuicon{
+        display: block;
+        margin-left: 65%;
+    }
+}

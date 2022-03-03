@@ -1,0 +1,93 @@
+
+.footer{
+    width: 100%;
+    background-color: rgb(34,34,34);
+    color: rgb(255,255,255);
+}
+
+.footertext{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.box1{
+    width: 400px;
+}
+
+.h1{
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.p{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(255,245,206);
+}
+
+.box2{
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 50px;
+}
+
+.link{
+    text-decoration: none;
+    color: rgb(255,255,241);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.linktext{
+    margin-right: 50px;
+}
+
+.linktext > div{
+    padding-top: 10px;
+}
+
+.box3{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+
+.box4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    background: rgb(33,205,156);
+    line-height: 0px;
+}
+
+.text1{
+    font-weight: 200;
+    font-size: 50px;
+}
+
+.text2{
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.button{
+    width: 100px;
+    border: 1px solid black;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
