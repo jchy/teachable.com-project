@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     border-bottom: 1px solid black;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .logo{
@@ -45,6 +45,48 @@
     display: none;
 }
 
+.drawer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawerbottom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.drawerlink{
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 36px;
+    color: rgb(34, 34, 34);
+}
+
+.drawercontent{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-left: 30px;
+}
+
+.drawerlogin{
+    width: 50%;
+    border: 1px solid black;
+    padding: 30px;
+    text-align: center;
+}
+
+.drawergetstarted{
+    width: 50%;
+    border: 1px solid black;
+    padding: 30px;
+    text-align: center;
+    background: rgb(33,205,156);
+}
 
 @media screen and (max-width: 1022px) {
     .navbar{
@@ -60,5 +102,10 @@
     .menuicon{
         display: block;
         margin-left: 65%;
+    }
+    .drawer{
+        width: 100%;
+        height: 100vh;
+        background: rgb(255,255,255);
     }
 }

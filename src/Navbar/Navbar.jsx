@@ -3,10 +3,20 @@ import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import style from "./Navbar.module.css";
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from "react";
+import Drawer from "./Drawer";
 
 export default function Navbar() {
 
+    const [open,setOpen] = useState(false);
+
+    const handleOpen = ()=>{
+        setOpen(!open);
+    }
+
     return (
+        <>
         <div className={style.navbar}>
             <div className={style.logo}>
                 <Link to="/">
@@ -49,9 +59,15 @@ export default function Navbar() {
             <div className={style.getstarted}>
                 <Link to="/get-started" className={style.link}>Get started</Link>
             </div>
-            <div className={style.menuicon}>
-                <MenuIcon />
+            <div className={style.menuicon} onClick={handleOpen}>
+                {open ? <CloseIcon /> : <MenuIcon />}
             </div>
         </div>
+        <div>
+        {
+            open ? <Drawer /> : null
+        }
+        </div>
+    </>
     )
 }
