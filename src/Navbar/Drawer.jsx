@@ -41,7 +41,7 @@ export default function Drawer() {
                     <Link to="/login" className={style.drawerlink}>Log in</Link>
                 </div>
                 <div className={style.drawergetstarted}>
-                    <Link to="/get-started" className={style.drawerlink}>Get started</Link>
+                    <Link to="/sign_up" className={style.drawerlink}>Get started</Link>
                 </div>
             </div>
         </div>

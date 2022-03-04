@@ -1,14 +1,8 @@
 
 import { Link } from "react-router-dom";
 import style from './Footer.module.css';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import SubscriptionsRoundedIcon from '@mui/icons-material/SubscriptionsRounded';
-import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
-import CenterFocusStrongRoundedIcon from '@mui/icons-material/CenterFocusStrongRounded';
-import FilterRoundedIcon from '@mui/icons-material/FilterRounded';
-import LinkRoundedIcon from '@mui/icons-material/LinkRounded';
 
-export default function Footer(){
+export default function Footer() {
 
     return (
         <div className={style.footer}>
@@ -97,13 +91,25 @@ export default function Footer(){
                 <div>
                     <p>Copyright © 2022 Teachable, Inc. All rights reserved.</p>
                 </div>
-                <div>
-                    <SubscriptionsRoundedIcon sx={{fontSize: "40px"}}/>
-                    <FacebookRoundedIcon sx={{fontSize: "40px"}}/>
-                    <AlternateEmailRoundedIcon sx={{fontSize: "40px"}}/>
-                    <CenterFocusStrongRoundedIcon sx={{fontSize: "40px"}}/>
-                    <FilterRoundedIcon sx={{fontSize: "40px"}}/>
-                    <LinkRoundedIcon sx={{fontSize: "40px"}}/>
+                <div className={style.imagebox}>
+                    <a href="https://www.google.com/">
+                        <img src="/images/google.png" alt="Google" width="40px" />
+                    </a>
+                    <a href="https://www.youtube.com/">
+                        <img src="/images/youtube.jpg" alt="YouTube" width="40px" />
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <img src="/images/facebook.jpg" alt="Facebook" width="40px" />
+                    </a>
+                    <a href="https://www.instagram.com/?hl=en">
+                        <img src="/images/instagram.jpg" alt="Instagram" width="40px" />
+                    </a>
+                    <a href="https://twitter.com/">
+                        <img src="/images/twitter.png" alt="Twitter" width="40px" />
+                    </a>
+                    <a href="https://www.linkedin.com/">
+                        <img src="/images/linkedin.png" alt="LinkedIn" width="40px" />
+                    </a>
                 </div>
             </div>
         </div>

@@ -57,7 +57,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div className={style.getstarted}>
-                <Link to="/get-started" className={style.link}>Get started</Link>
+                <Link to="/sign_up" className={style.link}>Get started</Link>
             </div>
             <div className={style.menuicon} onClick={handleOpen}>
                 {open ? <CloseIcon /> : <MenuIcon />}

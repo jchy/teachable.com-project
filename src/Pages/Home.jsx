@@ -13,7 +13,7 @@ export default function Home() {
                     <div className={style.inputbox}>
                         <input type="text" placeholder="Your email here" />
                         <div>
-                            <Link to="/get-started" className={style.link}>Get Started</Link>
+                            <Link to="/sign_up" className={style.link}>Get Started</Link>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ export default function Home() {
             <div className={style.box3}>
                 <img src="/images/image2.jpg" alt="" />
                 <p>Build a course, build a brand, build a business. <br /> Here is what Teachable can do for you.</p>
-                <Link to="/get-started" className={style.box3link}>Get Started for free</Link>
+                <Link to="/sign_up" className={style.box3link}>Get Started for free</Link>
             </div>
 
             <div className={style.box4}>
