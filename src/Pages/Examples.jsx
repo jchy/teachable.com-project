@@ -1,7 +1,6 @@
 
 import style from './Examples.module.css';
 import {Link} from 'react-router-dom';
-import Navbar from "../Navbar/Navbar";
 import SecondFooterExamples from '../Footer/SecondFooterExamples';
 import { useState } from 'react';
 import Arts from "./ExamplesComponents/Arts";
@@ -20,7 +19,6 @@ export default function Examples(){
     }
     return (
         <div>
-            <Navbar />
             <div className={style.box1}>
                 <p>The best online courses live on <span>Teachable</span>. From passion projects to multi-million dollar businesses, entrepreneurs trust us to help build and grow their <span>knowledge businesses.</span> Ready to join?</p>
                 <Link to="/sign_up" className={style.link}>Start for free</Link>

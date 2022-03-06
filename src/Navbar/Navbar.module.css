@@ -109,12 +109,11 @@
     }
     .menuicon{
         display: block;
-        margin-left: 65%;
+        margin-left: 50%;
         cursor: pointer;
     }
     .drawer{
         width: 100%;
-        height: 100vh;
         background: rgb(255,255,255);
     }
 }
