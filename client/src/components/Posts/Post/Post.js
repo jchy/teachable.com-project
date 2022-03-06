@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@mui/material';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { useDispatch } from 'react-redux';
@@ -73,7 +73,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: 'white' }}
             size="small"
           >
-            <EditOutlinedIcon fontSize="default" className={classes.editButton}/>EDIT
+            <EditOutlinedIcon fontSize="default" className={classes.editButton}/>
             
           </Button>
         </div>

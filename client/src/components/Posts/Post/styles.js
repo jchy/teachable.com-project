@@ -54,6 +54,7 @@ export default makeStyles({
     textAlign: 'initial',
   },
   editButton : {
-    fontSize: '20px'
+    fontSize: '20px',
+    paddingLeft: '50%'
   }
 });

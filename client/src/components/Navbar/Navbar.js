@@ -15,6 +15,8 @@ import lms from "../../images/lms.png";
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
+import Sidebar from '../Sidebar/Sidebar.js';
+
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -44,6 +46,7 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
+      <Sidebar />
       <Link to="/" className={classes.brandContainer}>
         <img component={Link} to="/" src={lms} alt="icon" height="45px" style={{paddingRight:"20px"}}/>
         <p className={classes.appBarText}> Dashboard </p>
