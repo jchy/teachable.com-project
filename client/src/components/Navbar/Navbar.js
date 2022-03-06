@@ -3,9 +3,15 @@ import { AppBar, Typography, Toolbar, Avatar, Button } from '@mui/material';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 
-import memoriesLogo from '../../images/memoriesLogo.png';
-import memoriesText from '../../images/memoriesText.png';
+// import lmsLogo from '../../images/lmsLogo.png';
+// import teachable from "../../images/teachable.jpeg";
+import lms from "../../images/lms.png";
+// import teachable_wordmark from "../../images/teachable_wordmark.svg";
+
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
@@ -39,8 +45,8 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
-        <img component={Link} to="/" src={memoriesText} alt="icon" height="45px" />
-        <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
+        <img component={Link} to="/" src={lms} alt="icon" height="45px" style={{paddingRight:"20px"}}/>
+        <p className={classes.appBarText}> Dashboard </p>
       </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (

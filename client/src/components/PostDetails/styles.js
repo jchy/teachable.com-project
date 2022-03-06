@@ -33,14 +33,6 @@ export default makeStyles((theme) => ({
       flexDirection: 'column',
     },
   },
-  loadingPaper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px',
-    borderRadius: '15px',
-    height: '39vh',
-  },
   commentsOuterContainer: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -50,4 +42,15 @@ export default makeStyles((theme) => ({
     overflowY: 'auto',
     marginRight: '30px',
   },
+  skeleton: {
+    margin: '10px'
+  },
+  skeletonContainer : {
+    display: 'flex',
+    flexDirection: 'row',
+    margin : "auto"
+  },
+  skeletonRight : {
+    borderRadius: '20px'
+  }
 }));

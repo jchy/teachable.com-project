@@ -66,4 +66,8 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  skeleton: {
+    borderRadius : "10px",
+    margin: '5px'
+  }
 }));

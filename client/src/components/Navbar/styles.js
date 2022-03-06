@@ -4,7 +4,7 @@ import { deepPurple } from '@mui/material/colors';
 export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
-    margin: '30px 0',
+    margin: '20px 0',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
   },
   image: {
     marginLeft: '10px',
-    marginTop: '5px',
+    marginTop: '5px'
   },
   toolbar: {
     display: 'flex',
@@ -54,9 +54,15 @@ export default makeStyles((theme) => ({
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
+    textDecoration: 'none'
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+  appBarText : {
+    fontSize: '28px',
+    margin : '0px',
+    fontWeight: 'bold'
+  }
 }));

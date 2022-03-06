@@ -3,6 +3,7 @@ import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBa
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
@@ -45,7 +46,6 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   const openPost = (e) => {
-    // dispatch(getPost(post._id, history));
 
     history.push(`/posts/${post._id}`);
   };
@@ -73,7 +73,8 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: 'white' }}
             size="small"
           >
-            <MoreHorizIcon fontSize="default" />
+            <EditOutlinedIcon fontSize="default" className={classes.editButton}/>EDIT
+            
           </Button>
         </div>
         )}
