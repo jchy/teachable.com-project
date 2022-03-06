@@ -15,6 +15,12 @@ export default function Navbar() {
         setOpen(!open);
     }
 
+    const [text,setText] = useState("");
+
+    const handleText = (val)=>{
+        setText(val)
+    }
+
     return (
         <>
         <div className={style.navbar}>
@@ -25,39 +31,46 @@ export default function Navbar() {
             </div>
             <div className={style.navtext}>
                 <div>
-                    <Link to="/features" className={style.link}>
+                    <Link to="/features" className={style.link} onClick={()=>handleText("features")}>
                         Features
                     </Link>
+                    <div className={"features"===text? style.border: ""}></div>
                 </div>
                 <div>
-                    <Link to="/pricing" className={style.link}>
+                    <Link to="/pricing" className={style.link} onClick={()=>handleText("pricing")}>
                         Pricing
                     </Link>
+                    <div className={"pricing"===text? style.border: ""}></div>
                 </div>
                 <div>
-                    <Link to="/blog" className={style.link}>
-                        Blog
+                    <Link to="/contact" className={style.link} onClick={()=>handleText("contact")}>
+                        Contact
                     </Link>
+                    <div className={"contact"===text? style.border: ""}></div>
                 </div>
                 <div>
-                    <Link to="/examples" className={style.link}>
+                    <Link to="/examples" className={style.link} onClick={()=>handleText("examples")}>
                         Examples
                     </Link>
+                    <div className={"examples"===text? style.border: ""}></div>
                 </div>
                 <div>
-                    <Link to="/about" className={style.link}>
+                    <Link to="/about" className={style.link} onClick={()=>handleText("about")}>
                         About
                     </Link>
+                    <div className={"about"===text? style.border: ""}></div>
                 </div>
                 <div>
                     <Dropdown/>
                 </div>
                 <div className={style.login}>
-                    <Link to="/login" className={style.link}>Log in</Link>
+                    <Link to="/login" className={style.link} onClick={()=>handleText("login")}>Log in</Link>
+                    <div className={"login"===text? style.border: ""}></div>
                 </div>
             </div>
             <div className={style.getstarted}>
-                <Link to="/sign_up" className={style.link}>Get started</Link>
+                <Link to="/sign_up" className={style.link} onClick={()=>handleText("sign_up")}>Get started</Link>
+                <div className={"sign_up"===text? style.border: ""}></div>
             </div>
             <div className={style.menuicon} onClick={handleOpen}>
                 {open ? <CloseIcon /> : <MenuIcon />}

@@ -1,5 +1,6 @@
 
 import { Switch,Route} from "react-router-dom";
+import Examples from "../Pages/Examples";
 import Home from "../Pages/Home";
 
 export default function AllRoutes(){
@@ -10,8 +11,8 @@ export default function AllRoutes(){
                <Route exact path="/">
                    <Home/>
                </Route>
-               <Route>
-
+               <Route exact path="/examples">
+                  <Examples />
                </Route>
             </Switch>
         </>

@@ -26,6 +26,14 @@
     color: black;
 }
 
+/* .link:hover{
+    border-bottom: 2px solid violet;
+} */
+
+.border{
+    border-bottom: 1px solid black;
+}
+
 .dropdowntext{
     border-bottom: 1px solid black;
     padding-bottom: 20px;
@@ -102,6 +110,7 @@
     .menuicon{
         display: block;
         margin-left: 65%;
+        cursor: pointer;
     }
     .drawer{
         width: 100%;

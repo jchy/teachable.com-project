@@ -1,0 +1,122 @@
+
+.box1{
+    width: 100%;
+    background: rgb(248,250,244);
+    padding: 100px 50px;
+}
+
+.box1 > p{
+    font-size: 58px;
+    font-weight: 350;
+    line-height: 77px;
+    padding-right: 100px;
+}
+
+.box1 > p > span{
+    font-weight: 400;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    background: rgb(33,205,156);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+.box2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+
+.box2 > p{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    margin-left: 20%;
+}
+
+.box2images{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.box2images > img{
+    margin-left: 50px;
+}
+
+.box3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linkbox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    margin: 50px;
+}
+
+.box3link{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: 450;
+    line-height: 34px;
+}
+
+.border{
+    border-bottom: 3px solid black;
+}
+
+@media screen and (max-width: 1022px) {
+    .box1{
+        width: 100%;
+        padding: 100px 30px;
+    }    
+    .box1 > p{
+        font-size: 28px;
+        line-height: 37px;
+        padding-right: 70px;
+    }
+
+    .box2{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 0px;
+    }
+    .box2 > p{
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .linkbox{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0px;
+        background: black;
+        padding-bottom: 20px;
+    }
+
+    .box3link{
+        color: white;
+    }
+
+    .border{
+        border-bottom: 3px solid white;
+    }
+}

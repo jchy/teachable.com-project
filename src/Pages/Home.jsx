@@ -1,11 +1,14 @@
 
 import style from "./Home.module.css";
 import { Link } from 'react-router-dom';
+import SecondFooter from "../Footer/SecondFooter";
+import Navbar from "../Navbar/Navbar";
 
 export default function Home() {
 
     return (
         <div>
+            <Navbar />
             <div className={style.box1}>
                 <div className={style.rightbox1}>
                     <h1>Share what you know.<sup>TM</sup></h1>
@@ -140,6 +143,7 @@ export default function Home() {
                     <Link to="/contact" className={style.box11link}>Contact us</Link>
                 </div>
             </div>
+            <SecondFooter />
         </div>
     )
 }

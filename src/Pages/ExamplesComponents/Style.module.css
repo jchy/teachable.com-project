@@ -1,0 +1,106 @@
+
+
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    text-align: center;
+}
+
+.text > h1{
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 79px;
+}
+
+.text > p{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.link{
+    text-decoration: none;
+    color: rgb(28,74,67);
+}
+
+.link:hover{
+    border: 2px solid black;
+}
+
+.card{
+    width: 330px;
+    border: 1px solid rgb(248,250,244);
+    background: rgb(248,250,244);
+}
+
+.card > img{
+    width: 100%;
+}
+
+.cardtext{
+    height: 180px;
+    padding: 0px 30px;
+}
+
+.cardtext > h3{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 29.7px;
+}
+
+.cardtext > p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.author{
+    display: flex;
+    gap: 2rem;
+    padding: 20px 30px;
+}
+
+.author > img{
+    border-radius: 50%;
+    width: 50px;
+}
+
+.cardbox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+@media screen and (max-width: 1022px) {
+
+    .text > h1{
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 52.8px;
+    }
+
+    .text > p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+    }
+
+    .card{
+        width: 100%;
+        height: auto;
+    }
+
+    .cardtext{
+        height: auto;
+    }
+    
+}
