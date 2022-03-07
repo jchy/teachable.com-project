@@ -26,5 +26,8 @@ export default makeStyles((theme) => ({
   },
   searchByTags:{
     width: '80%'
+  },
+  ul: {
+    justifyContent: 'space-around',
   }
 }));

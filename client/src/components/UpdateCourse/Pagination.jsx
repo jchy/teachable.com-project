@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Pagination, PaginationItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { getPosts } from '../actions/posts';
+import { getPosts } from '../../actions/posts';
 import useStyles from './styles';
 
 const Paginate = ({ page }) => {
@@ -25,9 +25,9 @@ const Paginate = ({ page }) => {
       count={numberOfPages}
       page={Number(page) || 1}
       variant="outlined"
-      color="secondary"
+      color="primary"
       renderItem={(item) => (
-        <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`} />
+        <PaginationItem {...item} component={Link} to={`/updatecourses?page=${item.page}`} />
       )}
     />
   );

@@ -15,7 +15,7 @@ import lms from "../../images/lms.png";
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
-import Sidebar from '../Sidebar/Sidebar.js';
+// import Sidebar from '../Sidebar/Sidebar.js';
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -40,13 +40,11 @@ const Navbar = () => {
 
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
-
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <Sidebar />
       <Link to="/" className={classes.brandContainer}>
         <img component={Link} to="/" src={lms} alt="icon" height="45px" style={{paddingRight:"20px"}}/>
         <p className={classes.appBarText}> Dashboard </p>
