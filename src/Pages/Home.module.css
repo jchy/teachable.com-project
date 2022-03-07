@@ -246,6 +246,10 @@
     }
     .box3 > img{
         width: 80%;
+        height: 50%;
+    }
+    .box3 > p{
+        margin-top: 50px;
     }
     .box4{
         width: 100%;
@@ -507,6 +511,10 @@
         width: 100%;
         flex-wrap: wrap;
     }
+
+    .box6left > div{
+       margin-left: 20px;
+    }
     .box6right{
         width: 100%;
         display: flex;
@@ -514,6 +522,9 @@
         justify-content: center;
     }
 
+    .box7text > div{
+        margin-left: 30%;
+    }
     .box9{
         width: 100%;
         flex-wrap: wrap;
@@ -555,6 +566,10 @@
     }
     .box11right{
         width: 100%;
+    }
+    .box11right > p{
+        font-size: 26px;
+        line-height: 35px;
     }
 }
 
