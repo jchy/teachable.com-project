@@ -33,10 +33,27 @@ export default function Contact() {
                     <h3>About: I am a Full Stack Web Developer</h3>
                     <p>Qualification: B.Tech in Computer Science and Engineering</p>
                     <div className={style.btn}>
-                    <a href="mailto:recjaswant@gmail.com"> Contact us with email </a>
+                    <a href="mailto:recjaswantcse@gmail.com"> Contact us with email </a>
                     </div>
                     <div className={style.btn}>
                     <a href="//api.whatsapp.com/send?phone=919648976787">Contact us on What's Up</a>
+                    </div>
+                </div>
+            </div>
+            <div className={style.box}>
+                <div className={style.box1}>
+                    <img src="/images/profile3.png" alt="Paarug" />
+                </div>
+                <div className={style.box2}>
+                    <h3>Name: Paarug Sethi</h3>
+                    <p>Description: Creator of this Website</p>
+                    <h3>About: I am a Full Stack Web Developer</h3>
+                    <p>Qualification: BMS</p>
+                    <div className={style.btn}>
+                    <a href="mailto:paarug_pw1_119@masai.school"> Contact us with email </a>
+                    </div>
+                    <div className={style.btn}>
+                    <a href="//api.whatsapp.com/send?phone=918860727728">Contact us on What's Up</a>
                     </div>
                 </div>
             </div>
