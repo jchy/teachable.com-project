@@ -3,8 +3,8 @@ import { useParams, useLocation } from 'react-router-dom';
 import { Typography, CircularProgress, Grid, Divider } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Post from '../Posts/Post/Post';
-import { getPostsByCreator, getPostsBySearch } from '../../actions/posts';
+import Course from '../Courses/Course/Course';
+import { getCoursesByCreator, getCoursesBySearch } from '../../actions/posts';
 
 const CreatorOrTag = () => {
   const { name } = useParams();
@@ -15,9 +15,9 @@ const CreatorOrTag = () => {
 
   useEffect(() => {
     if (location.pathname.startsWith('/tags')) {
-      dispatch(getPostsBySearch({ tags: name }));
+      dispatch(getCoursesBySearch({ tags: name }));
     } else {
-      dispatch(getPostsByCreator(name));
+      dispatch(getCoursesByCreator(name));
     }
   }, []);
 
@@ -31,7 +31,7 @@ const CreatorOrTag = () => {
         <Grid container alignItems="stretch" spacing={3}>
           {posts?.map((post) => (
             <Grid key={post._id} item xs={12} sm={12} md={6} lg={3}>
-              <Post post={post} />
+              <Course post={post} />
             </Grid>
           ))}
         </Grid>

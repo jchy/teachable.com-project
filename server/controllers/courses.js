@@ -1,19 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import PostMessage from '../models/postMessage.js';
+import CourseMessage from '../models/courseMessage.js';
 
 const router = express.Router();
 
-export const getPosts = async (req, res) => {
+export const getCourses = async (req, res) => {
     const { page } = req.query;
     
     try {
         const LIMIT = 4;
         const startIndex = (Number(page) - 1) * LIMIT; // get the starting index of every page
     
-        const total = await PostMessage.countDocuments({});
-        const posts = await PostMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
+        const total = await CourseMessage.countDocuments({});
+        const posts = await CourseMessage.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
 
         res.json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT)});
     } catch (error) {    
@@ -21,13 +21,13 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const getPostsBySearch = async (req, res) => {
+export const getCoursesBySearch = async (req, res) => {
     const { searchQuery, tags } = req.query;
 
     try {
         const title = new RegExp(searchQuery, "i");
 
-        const posts = await PostMessage.find({ $or: [ { title }, { tags: { $in: tags.split(',') } } ]});
+        const posts = await CourseMessage.find({ $or: [ { title }, { tags: { $in: tags.split(',') } } ]});
 
         res.json({ data: posts });
     } catch (error) {    
@@ -35,11 +35,11 @@ export const getPostsBySearch = async (req, res) => {
     }
 }
 
-export const getPostsByCreator = async (req, res) => {
+export const getCoursesByCreator = async (req, res) => {
     const { name } = req.query;
 
     try {
-        const posts = await PostMessage.find({ name });
+        const posts = await CourseMessage.find({ name });
 
         res.json({ data: posts });
     } catch (error) {    
@@ -47,11 +47,11 @@ export const getPostsByCreator = async (req, res) => {
     }
 }
 
-export const getPost = async (req, res) => { 
+export const getCourse = async (req, res) => { 
     const { id } = req.params;
 
     try {
-        const post = await PostMessage.findById(id);
+        const post = await CourseMessage.findById(id);
         
         res.status(200).json(post);
     } catch (error) {
@@ -59,44 +59,44 @@ export const getPost = async (req, res) => {
     }
 }
 
-export const createPost = async (req, res) => {
+export const createCourse = async (req, res) => {
     const post = req.body;
 
-    const newPostMessage = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
+    const newCourseMessage = new CourseMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
 
     try {
-        await newPostMessage.save();
+        await newCourseMessage.save();
 
-        res.status(201).json(newPostMessage);
+        res.status(201).json(newCourseMessage);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
 
-export const updatePost = async (req, res) => {
+export const updateCourse = async (req, res) => {
     const { id } = req.params;
     const { title, message, creator, selectedFile, tags } = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
+    const updatedCourse = { creator, title, message, tags, selectedFile, _id: id };
 
-    await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+    await CourseMessage.findByIdAndUpdate(id, updatedCourse, { new: true });
 
-    res.json(updatedPost);
+    res.json(updatedCourse);
 }
 
-export const deletePost = async (req, res) => {
+export const deleteCourse = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    await PostMessage.findByIdAndRemove(id);
+    await CourseMessage.findByIdAndRemove(id);
 
-    res.json({ message: "Post deleted successfully." });
+    res.json({ message: "Course is deleted successfully." });
 }
 
-export const likePost = async (req, res) => {
+export const likeCourse = async (req, res) => {
     const { id } = req.params;
 
     if (!req.userId) {
@@ -105,7 +105,7 @@ export const likePost = async (req, res) => {
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     
-    const post = await PostMessage.findById(id);
+    const post = await CourseMessage.findById(id);
 
     const index = post.likes.findIndex((id) => id ===String(req.userId));
 
@@ -115,22 +115,22 @@ export const likePost = async (req, res) => {
       post.likes = post.likes.filter((id) => id !== String(req.userId));
     }
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
+    const updatedCourse = await CourseMessage.findByIdAndUpdate(id, post, { new: true });
 
-    res.status(200).json(updatedPost);
+    res.status(200).json(updatedCourse);
 }
 
-export const commentPost = async (req, res) => {
+export const commentCourse = async (req, res) => {
     const { id } = req.params;
     const { value } = req.body;
 
-    const post = await PostMessage.findById(id);
+    const post = await CourseMessage.findById(id);
 
     post.comments.push(value);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
+    const updatedCourse = await CourseMessage.findByIdAndUpdate(id, post, { new: true });
 
-    res.json(updatedPost);
+    res.json(updatedCourse);
 };
 
 export default router;

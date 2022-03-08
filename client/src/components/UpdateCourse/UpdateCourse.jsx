@@ -12,8 +12,8 @@ import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 
-import { getPostsBySearch } from "../../actions/posts";
-import Posts from "./Posts";
+import { getCoursesBySearch } from "../../actions/posts";
+import Courses from "./Courses";
 import Form from "../Form/Form";
 import Pagination from "./Pagination";
 import useStyles from "./styles";
@@ -34,9 +34,9 @@ const UpdateCourse = () => {
   const [tags, setTags] = useState([]);
   const history = useHistory();
 
-  const searchPost = () => {
+  const searchCourse = () => {
     if (search.trim() || tags) {
-      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
+      dispatch(getCoursesBySearch({ search, tags: tags.join(",") }));
       history.push(
         `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
       );
@@ -47,7 +47,7 @@ const UpdateCourse = () => {
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
-      searchPost();
+      searchCourse();
     }
   };
 
@@ -68,7 +68,7 @@ const UpdateCourse = () => {
                 className={classes.gridContainer}
               >
                 <Grid item xs={9} sm={9} md={9}>
-                  <Posts setCurrentId={setCurrentId} />
+                  <Courses setCurrentId={setCurrentId} />
                 </Grid>
                 <Grid item>
                   <AppBar
@@ -94,7 +94,7 @@ const UpdateCourse = () => {
                       variant="outlined"
                     />
                     <Button
-                      onClick={searchPost}
+                      onClick={searchCourse}
                       className={classes.searchButton}
                       variant="contained"
                       color="primary"

@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-import { getPost, getPostsBySearch } from "../../actions/posts";
+import { getCourse, getCoursesBySearch } from "../../actions/posts";
 import CommentSection from "./CommentSection";
 import useStyles from "./styles";
 import Skeleton from "@mui/material/Skeleton";
 import Grid from '@mui/material/Grid';
 
-const Post = () => {
+const Course = () => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,20 +18,20 @@ const Post = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getPost(id));
+    dispatch(getCourse(id));
   }, [id]);
 
   useEffect(() => {
     if (post) {
       dispatch(
-        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
+        getCoursesBySearch({ search: "none", tags: post?.tags.join(",") })
       );
     }
   }, [post]);
 
   if (!post) return null;
 
-  const openPost = (_id) => history.push(`/posts/${_id}`);
+  const openCourse = (_id) => history.push(`/posts/${_id}`);
 
   if (isLoading) {
     return (
@@ -61,7 +61,7 @@ const Post = () => {
     );
   }
 
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
+  const recommendedCourses = posts.filter(({ _id }) => _id !== post._id);
 
   return (
     <div style={{width:"70%"}}>
@@ -112,19 +112,19 @@ const Post = () => {
           <Divider style={{ margin: "20px 0" }} />
         </div>
       </div>
-      {!!recommendedPosts.length && (
+      {!!recommendedCourses.length && (
         <div className={classes.section}>
           <div>
             You might also like:
           </div>
           <Divider />
-          <div className={classes.recommendedPosts}>
-            {recommendedPosts.map(
+          <div className={classes.recommendedCourses}>
+            {recommendedCourses.map(
               ({ title, name, message, likes, selectedFile, _id }) => (
                 <>
                 <div
                   style={{ margin: "20px", cursor: "pointer" }}
-                  onClick={() => openPost(_id)}
+                  onClick={() => openCourse(_id)}
                   key={_id}
                 >
                   <div>
@@ -153,4 +153,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default Course;

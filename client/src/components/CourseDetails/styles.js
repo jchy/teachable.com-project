@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
       marginLeft: 0,
     },
   },
-  recommendedPosts: {
+  recommendedCourses: {
     display: 'flex',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',

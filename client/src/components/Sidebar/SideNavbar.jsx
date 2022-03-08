@@ -9,7 +9,7 @@ const Links = [
   },
   {
     to: "/form",
-    title: "Create New Course"
+    title: "Create Course"
   },
   {
     to: "/payments",

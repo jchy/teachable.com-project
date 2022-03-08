@@ -1,19 +1,17 @@
 import React from 'react';
-import { Grid} from '@mui/material';
+import { Grid, CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-import Post from '../Posts/Post/Post';
-import useStyles from './PostsStyles';
+import Course from './Course/Course';
+import useStyles from './styles';
 
 import Skeleton from '@mui/material/Skeleton';
 
-const Posts = ({ setCurrentId }) => {
+const Courses = ({ setCurrentId }) => {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
-  if(!posts.length && !isLoading)
-    return 'No posts';
-  const user = JSON.parse(localStorage.getItem('profile'));
-   
+
+  if (!posts.length && !isLoading) return 'No posts';
 
   return (
     isLoading ?  (
@@ -30,15 +28,15 @@ const Posts = ({ setCurrentId }) => {
           </Grid>
     ))}</Grid>) : (
       <Grid className={classes.container} container alignItems="stretch" spacing={6}>
-        {posts?.map((post) => ((user?.result?.googleId === post?.creator || user?.result?._id === post?.creator))?
-          (<Grid key={post._id} item xs={12} sm={12} md={6} lg={6} >
-            <Post post={post} setCurrentId={setCurrentId} />
-          </Grid>):null
-        )}
+        {posts?.map((post) => (
+          <Grid key={post._id} item xs={12} sm={12} md={6} lg={6} >
+            <Course post={post} setCurrentId={setCurrentId} />
+          </Grid>
+        ))}
       </Grid>
     )
   );
 };
 
-export default Posts;
+export default Courses;
 
