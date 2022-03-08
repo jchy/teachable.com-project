@@ -17,14 +17,4 @@ export default makeStyles((theme) => ({
       flexDirection: 'column-reverse',
     },
   },
-  searchCourses:{
-    marginTop: '5rem'
-  },
-  searchButton:{
-    marginTop: '20px',
-    marginLeft: '10px'
-  },
-  searchByTags:{
-    width: '80%'
-  }
 }));

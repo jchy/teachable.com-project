@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-import { getPost, getPostsBySearch } from "../../actions/posts";
+import { getCourse, getCoursesBySearch } from "../../actions/posts";
 import CommentSection from "./CommentSection";
 import useStyles from "./styles";
 import Skeleton from "@mui/material/Skeleton";
 import Grid from '@mui/material/Grid';
 
-const Post = () => {
+const Course = () => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,20 +18,20 @@ const Post = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getPost(id));
+    dispatch(getCourse(id));
   }, [id]);
 
   useEffect(() => {
     if (post) {
       dispatch(
-        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
+        getCoursesBySearch({ search: "none", tags: post?.tags.join(",") })
       );
     }
   }, [post]);
 
   if (!post) return null;
 
-  const openPost = (_id) => history.push(`/posts/${_id}`);
+  const openCourse = (_id) => history.push(`/posts/${_id}`);
 
   if (isLoading) {
     return (
@@ -61,21 +61,19 @@ const Post = () => {
     );
   }
 
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
+  const recommendedCourses = posts.filter(({ _id }) => _id !== post._id);
 
   return (
-    <Paper style={{ padding: "20px", borderRadius: "15px" }} elevation={6}>
+    <div style={{width:"70%"}}>
       <div className={classes.card}>
         <div className={classes.section}>
-          <Typography variant="h3" component="h2">
+        <div className={classes.imageSection}>
+          <img className={classes.media} src={ post.selectedFile || "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt={post.title} />
+        </div>
+          <div>
             {post.title}
-          </Typography>
-          <Typography
-            gutterBottom
-            variant="h6"
-            color="textSecondary"
-            component="h2"
-          >
+          </div>
+          <div>
             {post.tags.map((tag) => (
               <Link
                 to={`/tags/${tag}`}
@@ -84,11 +82,11 @@ const Post = () => {
                 {` #${tag} `}
               </Link>
             ))}
-          </Typography>
-          <Typography gutterBottom variant="body1" component="p">
+          </div>
+          <div>
             {post.message}
-          </Typography>
-          <Typography variant="h6">
+          </div>
+          <div>
             Created by:
             <Link
               to={`/creators/${post.name}`}
@@ -96,67 +94,63 @@ const Post = () => {
             >
               {` ${post.name}`}
             </Link>
-          </Typography>
-          <Typography variant="body1">
+          </div>
+          <div>
             {moment(post.createdAt).fromNow()}
-          </Typography>
+          </div>
           <Divider style={{ margin: "20px 0" }} />
-          <Typography variant="body1">
+          <div>
             <strong>
               Please put all your quries in comment box we will get back to you
               asap
             </strong>
-          </Typography>
+          </div>
           <Divider style={{ margin: "20px 0" }} />
+          <div style={{width:"100%"}}>
           <CommentSection post={post} />
+          </div>
           <Divider style={{ margin: "20px 0" }} />
-        </div>
-        <div className={classes.imageSection}>
-          <img
-            className={classes.media}
-            src={
-              post.selectedFile ||
-              "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
-            }
-            alt={post.title}
-          />
         </div>
       </div>
-      {!!recommendedPosts.length && (
+      {!!recommendedCourses.length && (
         <div className={classes.section}>
-          <Typography gutterBottom variant="h5">
+          <div>
             You might also like:
-          </Typography>
+          </div>
           <Divider />
-          <div className={classes.recommendedPosts}>
-            {recommendedPosts.map(
+          <div className={classes.recommendedCourses}>
+            {recommendedCourses.map(
               ({ title, name, message, likes, selectedFile, _id }) => (
+                <>
                 <div
                   style={{ margin: "20px", cursor: "pointer" }}
-                  onClick={() => openPost(_id)}
+                  onClick={() => openCourse(_id)}
                   key={_id}
                 >
-                  <Typography gutterBottom variant="h6">
+                  <div>
                     {title}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle2">
+                  </div>
+                  <div>
                     {name}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle2">
+                  </div>
+                  <div>
                     {message}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle1">
+                  </div>
+                  <div>
                     Likes: {likes.length}
-                  </Typography>
+                  </div>
+                  <div>
                   <img src={selectedFile} width="200px" />
+                  </div>
                 </div>
+                </>
               )
             )}
           </div>
         </div>
       )}
-    </Paper>
+    </div>
   );
 };
 
-export default Post;
+export default Course;

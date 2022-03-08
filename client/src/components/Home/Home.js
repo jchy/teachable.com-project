@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
-import { getPostsBySearch } from '../../actions/posts';
-import Posts from '../Posts/Posts';
+import { getCoursesBySearch } from '../../actions/posts';
+import Courses from '../Courses/Courses';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
 import useStyles from './styles';
@@ -26,9 +26,9 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const history = useHistory();
 
-  const searchPost = () => {
+  const searchCourse = () => {
     if (search.trim() || tags) {
-      dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
+      dispatch(getCoursesBySearch({ search, tags: tags.join(',') }));
       history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
       history.push('/');
@@ -37,7 +37,7 @@ const Home = () => {
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
-      searchPost();
+      searchCourse();
     }
   };
 
@@ -49,12 +49,8 @@ const Home = () => {
     <Grow in>
       <Container maxWidth="xl">
         <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
-          <Grid item xs={12} sm={6} md={9}>
-            <Posts setCurrentId={setCurrentId} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <AppBar className={classes.appBarSearch} position="static" color="inherit">
-              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Courses" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+        <Grid position="static" color="inherit" className={classes.searchCourses}>
+          <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Courses" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
               <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
@@ -62,10 +58,17 @@ const Home = () => {
                 onDelete={(chip) => handleDeleteChip(chip)}
                 label="Search Tags"
                 variant="outlined"
+                className={classes.searchByTags}
               />
-              <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
-            </AppBar>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
+              <br/>
+              <Button onClick={searchCourse} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+          </Grid>
+          <Grid item xs={12} sm={6} md={9}>
+            <Courses setCurrentId={setCurrentId} />
+          </Grid>
+        </Grid>
+        <Grid>
+        <Grid item xs={12} sm={4} md={9}>
             {(!searchQuery && !tags.length) && (
               <Paper className={classes.pagination} elevation={6}>
                 <Pagination page={page} />

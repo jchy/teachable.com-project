@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Typography, TextField, Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { commentPost } from '../../actions/posts';
+import { commentCourse } from '../../actions/posts';
 import useStyles from './styles';
 
 const CommentSection = ({ post }) => {
@@ -14,7 +14,7 @@ const CommentSection = ({ post }) => {
   const commentsRef = useRef();
 
   const handleComment = async () => {
-    const newComments = await dispatch(commentPost(`${user?.result?.name}: ${comment}`, post._id));
+    const newComments = await dispatch(commentCourse(`${user?.result?.name}: ${comment}`, post._id));
 
     setComment('');
     setComments(newComments);
@@ -36,10 +36,12 @@ const CommentSection = ({ post }) => {
           <div ref={commentsRef} />
         </div>
         <div style={{ width: '70%' }}>
-          <Typography gutterBottom variant="h6">Write a comment</Typography>
-          <TextField fullWidth rows={4} variant="outlined" label="Comment" multiline value={comment} onChange={(e) => setComment(e.target.value)} />
+          <div>Write a comment</div>
+          <div>
+            <TextField style={{ marginTop: '10px',marginRight: '10px'}} fullWidth rows={4} variant="outlined" label="Comment" multiline value={comment} onChange={(e) => setComment(e.target.value)} />
+          </div>
           <br />
-          <Button style={{ marginTop: '10px' }} fullWidth disabled={!comment.length} color="primary" variant="contained" onClick={handleComment}>
+          <Button style={{ marginTop: '5px'}} fullWidth disabled={!comment.length} color="primary" variant="contained" onClick={handleComment}>
             Comment
           </Button>
         </div>

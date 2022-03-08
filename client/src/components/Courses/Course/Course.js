@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@mui/material';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 
-import { likePost, deletePost } from '../../../actions/posts';
+import { likeCourse, deleteCourse } from '../../../actions/posts';
 import useStyles from './styles';
 
-const Post = ({ post, setCurrentId }) => {
+const Course = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const [likes, setLikes] = useState(post?.likes);
   const dispatch = useDispatch();
@@ -20,12 +19,12 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
 
   const userId = user?.result.googleId || user?.result?._id;
-  const hasLikedPost = post.likes.find((like) => like === userId);
+  const hasLikedCourse = post.likes.find((like) => like === userId);
 
   const handleLike = async () => {
-    dispatch(likePost(post._id));
+    dispatch(likeCourse(post._id));
 
-    if (hasLikedPost) {
+    if (hasLikedCourse) {
       setLikes(post.likes.filter((id) => id !== userId));
     } else {
       setLikes([...post.likes, userId]);
@@ -45,8 +44,7 @@ const Post = ({ post, setCurrentId }) => {
     return <><ThumbUpOffAltIcon fontSize="small" />&nbsp;Like</>;
   };
 
-  const openPost = (e) => {
-
+  const openCourse = (e) => {
     history.push(`/posts/${post._id}`);
   };
 
@@ -56,7 +54,7 @@ const Post = ({ post, setCurrentId }) => {
         component="span"
         name="test"
         className={classes.cardAction}
-        onClick={openPost}
+        onClick={openCourse}
       >
         <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
         <div className={classes.overlay}>
@@ -73,7 +71,7 @@ const Post = ({ post, setCurrentId }) => {
             style={{ color: 'white' }}
             size="small"
           >
-            <EditOutlinedIcon fontSize="default" className={classes.editButton}/>
+          <EditOutlinedIcon fontSize="default" className={classes.editButton}/>
             
           </Button>
         </div>
@@ -91,7 +89,7 @@ const Post = ({ post, setCurrentId }) => {
           <Likes />
         </Button>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
+          <Button size="small" color="secondary" onClick={() => dispatch(deleteCourse(post._id))}>
             <DeleteIcon fontSize="small" /> &nbsp; Delete
           </Button>
         )}
@@ -100,4 +98,4 @@ const Post = ({ post, setCurrentId }) => {
   );
 };
 
-export default Post;
+export default Course;

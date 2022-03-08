@@ -1,11 +1,11 @@
 import { START_LOADING, END_LOADING, FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH, CREATE, UPDATE, DELETE, LIKE, COMMENT, FETCH_BY_CREATOR } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
-export const getPost = (id) => async (dispatch) => {
+export const getCourse = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
 
-    const { data } = await api.fetchPost(id);
+    const { data } = await api.fetchCourse(id);
 
     dispatch({ type: FETCH_POST, payload: { post: data } });
   } catch (error) {
@@ -13,10 +13,10 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 
-export const getPosts = (page) => async (dispatch) => {
+export const getCourses = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data: { data, currentPage, numberOfPages } } = await api.fetchPosts(page);
+    const { data: { data, currentPage, numberOfPages } } = await api.fetchCourses(page);
 
     dispatch({ type: FETCH_ALL, payload: { data, currentPage, numberOfPages } });
     dispatch({ type: END_LOADING });
@@ -25,10 +25,10 @@ export const getPosts = (page) => async (dispatch) => {
   }
 };
 
-export const getPostsByCreator = (name) => async (dispatch) => {
+export const getCoursesByCreator = (name) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data: { data } } = await api.fetchPostsByCreator(name);
+    const { data: { data } } = await api.fetchCoursesByCreator(name);
 
     dispatch({ type: FETCH_BY_CREATOR, payload: { data } });
     dispatch({ type: END_LOADING });
@@ -37,10 +37,10 @@ export const getPostsByCreator = (name) => async (dispatch) => {
   }
 };
 
-export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+export const getCoursesBySearch = (searchQuery) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data: { data } } = await api.fetchPostsBySearch(searchQuery);
+    const { data: { data } } = await api.fetchCoursesBySearch(searchQuery);
 
     dispatch({ type: FETCH_BY_SEARCH, payload: { data } });
     dispatch({ type: END_LOADING });
@@ -49,10 +49,10 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   }
 };
 
-export const createPost = (post, history) => async (dispatch) => {
+export const createCourse = (post, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.createPost(post);
+    const { data } = await api.createCourse(post);
 
     dispatch({ type: CREATE, payload: data });
 
@@ -62,9 +62,9 @@ export const createPost = (post, history) => async (dispatch) => {
   }
 };
 
-export const updatePost = (id, post) => async (dispatch) => {
+export const updateCourse = (id, post) => async (dispatch) => {
   try {
-    const { data } = await api.updatePost(id, post);
+    const { data } = await api.updateCourse(id, post);
 
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
@@ -72,11 +72,11 @@ export const updatePost = (id, post) => async (dispatch) => {
   }
 };
 
-export const likePost = (id) => async (dispatch) => {
+export const likeCourse = (id) => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   try {
-    const { data } = await api.likePost(id, user?.token);
+    const { data } = await api.likeCourse(id, user?.token);
 
     dispatch({ type: LIKE, payload: data });
   } catch (error) {
@@ -84,7 +84,7 @@ export const likePost = (id) => async (dispatch) => {
   }
 };
 
-export const commentPost = (value, id) => async (dispatch) => {
+export const commentCourse = (value, id) => async (dispatch) => {
   try {
     const { data } = await api.comment(value, id);
 
@@ -96,9 +96,9 @@ export const commentPost = (value, id) => async (dispatch) => {
   }
 };
 
-export const deletePost = (id) => async (dispatch) => {
+export const deleteCourse = (id) => async (dispatch) => {
   try {
-    await await api.deletePost(id);
+    await await api.deleteCourse(id);
 
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
