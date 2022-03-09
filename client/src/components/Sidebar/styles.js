@@ -5,9 +5,9 @@ export default makeStyles(() => ({
     justifyContent: 'space-around',
   },
   container : {
-    backgroundColor:"whitesmoke",
+    // backgroundColor:"whitesmoke",
     width:"260px",
-    borderRight : "1px solid grey",
+    // borderRight : "1px solid grey",
     marginRight : "20px"
   },
   links : {

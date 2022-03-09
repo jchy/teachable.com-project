@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { useHistory } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
+// import React from "react";
+import { Link } from "react-router-dom";
+import StorageIcon from '@mui/icons-material/Storage';
 
 import { createCourse, updateCourse } from '../../actions/posts';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setCourseData] = useState({ title: '', message: '', tags: [], selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
+  const [postData, setCourseData] = useState({ title: '', description: '', price: 0, tags: [], selectedFile: '' });
+  const post = useSelector((state) => (currentId ? state.posts.posts.find((description) => description._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -18,7 +21,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setCourseData({ title: '', message: '', tags: [], selectedFile: '' });
+    setCourseData({ title: '', description: '',price: 0, tags: [], selectedFile: '' });
   };
 
   useEffect(() => {
@@ -40,11 +43,21 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if (!user?.result?.name) {
     return (
-      <Paper className={classes.paper} elevation={6}>
-        <Typography variant="h6" align="center">
-          Signin to explore more features
-        </Typography>
-      </Paper>
+      <div style={{ border:"1px solid white", width:"300px",borderRadius:"10px",backgroundColor:"#E5FF04", color:"black", margin:"auto", height:"400px"}}>
+       <h2 style={{paddingLeft:"20px"}}> Please Sign in to explore more features like</h2>
+       <ul style={{ listStyle:"none"}}>
+         <p>
+         <li> ✅ Create your own courses</li>
+         </p>
+         <p><li> 🖌 Create update your courses</li></p>
+
+         <p><li> ❌ Delete your courses</li></p>
+         <p><li> ♥️ Like courses</li></p>
+       </ul>
+       <h3 style={{textAlign:"center"}}>
+       <Link to='/auth' style={{textDecoration:"none", color : "blue"}}>Please click here to Sign in</Link>
+       </h3>
+      </div>
     );
   }
 
@@ -57,11 +70,13 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   return (
-    <Paper className={classes.paper} elevation={6}>
+    <Paper className={classes.paper} elevation={6} >
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : 'Create a new Course'}</Typography>
         <TextField name="title" variant="outlined" label="Course Title" fullWidth value={postData.title} onChange={(e) => setCourseData({ ...postData, title: e.target.value })} />
-        <TextField name="message" variant="outlined" label="Course Description" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setCourseData({ ...postData, message: e.target.value })} />
+        <TextField name="description" variant="outlined" label="Course Description" fullWidth multiline rows={4} value={postData.description} onChange={(e) => setCourseData({ ...postData, description: e.target.value })} />
+        <TextField name="price" variant="outlined" label="Course Price" fullWidth value={postData.price} onChange={(e) => setCourseData({ ...postData, price: e.target.value })} />
+        
         <div style={{ padding: '5px 0', width: '94%' }}>
           <ChipInput
             name="tags"
@@ -74,8 +89,14 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setCourseData({ ...postData, selectedFile: base64 })} /></div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+        <div>
+        <div>
+        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit">Submit</Button>
+        </div>
+        <div>
+        <Button variant="contained" color="secondary" size="small" onClick={clear}  style={{backgroundColor:"#900C3F ", width:"500px", padding:"10px"}}>Clear</Button>
+        </div>
+        </div>
       </form>
     </Paper>
   );

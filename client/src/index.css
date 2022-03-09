@@ -1,6 +1,10 @@
 
 body {
-    background-color: #f7f8fc;
+    /* background-color: #FFCACA; */
+    background-color: #FFE4E4;
+    /* color : white; */
+    margin: 0px;
+    padding: 0px;
 }
 
 * {

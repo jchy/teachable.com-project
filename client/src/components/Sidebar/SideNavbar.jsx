@@ -12,8 +12,8 @@ const Links = [
     title: "Create Course"
   },
   {
-    to: "/payments",
-    title: "Payments"
+    to: "/membership",
+    title: "Membership"
   },
   {
     to: "/updatecourses",
@@ -27,7 +27,7 @@ const Links = [
 const SideNavbar = () => {
   const classes = useStyles();
   return (
-    <div className={classes.container} style={{ width: '300px',minWidth: '200px',padding:"20px", backgroundColor:"yellow"}}>
+    <div className={classes.container} style={{ width: '300px',minWidth: '200px',padding:"20px", backgroundColor:"white"}}>
       {Links.map(({ to, title }) => {
         return (
           <div className={classes.links}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid} from '@mui/material';
 import { useSelector } from 'react-redux';
 
-import Course from '../Courses/Course/Course';
+import Course from './Course/Course';
 import useStyles from './CoursesStyles';
 
 import Skeleton from '@mui/material/Skeleton';
@@ -14,7 +14,6 @@ const Courses = ({ setCurrentId }) => {
     return 'No posts';
   const user = JSON.parse(localStorage.getItem('profile'));
    
-
   return (
     isLoading ?  (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
