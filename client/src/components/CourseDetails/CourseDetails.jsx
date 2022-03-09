@@ -3,6 +3,7 @@ import { Paper, Typography, CircularProgress, Divider } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useHistory, Link } from "react-router-dom";
+import ReactPlayer from 'react-player'
 
 import { getCourse, getCoursesBySearch } from "../../actions/posts";
 import CommentSection from "./CommentSection";
@@ -64,16 +65,17 @@ const Course = () => {
   const recommendedCourses = posts.filter(({ _id }) => _id !== post._id);
 
   return (
-    <div style={{width:"70%"}}>
+    <div style={{width:"70%", backgroundColor:"white", borderRadius:"5px"}}>
       <div className={classes.card}>
         <div className={classes.section}>
         <div className={classes.imageSection}>
-          <img className={classes.media} src={ post.selectedFile || "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt={post.title} />
+          <ReactPlayer controls url={post.selectedFile} height='600px' width="800px" />
         </div>
-          <div>
-            {post.title}
+        <div style={{background:"whitesmoke", margin:"20px", marginRight:"40px"}}>
+          <div className={classes.title}>
+            <span className={classes.titleS}>Course : </span> {post.title} <span className={classes.titleSS}>{moment(post.createdAt).fromNow()}</span>
           </div>
-          <div>
+          <div className={classes.tags}>
             {post.tags.map((tag) => (
               <Link
                 to={`/tags/${tag}`}
@@ -83,11 +85,8 @@ const Course = () => {
               </Link>
             ))}
           </div>
-          <div>
-            {post.message}
-          </div>
-          <div>
-            Created by:
+          <div className={classes.createdBy}>
+            <span className={classes.createdByS}>Course creator :</span>
             <Link
               to={`/creators/${post.name}`}
               style={{ textDecoration: "none", color: "#3f51b5" }}
@@ -95,46 +94,58 @@ const Course = () => {
               {` ${post.name}`}
             </Link>
           </div>
-          <div>
-            {moment(post.createdAt).fromNow()}
+          
+          <div className={classes.createdBy}>
+            <Link
+              to={`/creators/${post.name}`}
+              style={{ textDecoration: "none", color: "#3f51b5", fontWeight:"bold", color:"blue"}}
+            >
+              Click here view all the course of {` ${post.name}`}
+            </Link>
           </div>
-          <Divider style={{ margin: "20px 0" }} />
-          <div>
+          
+          <div className={classes.description}>
+            <p className={classes.descriptionH}>Course description : </p> 
+            <p className={classes.descriptionB}>{post.description}</p>
+          </div>
+          </div>
+          <Divider style={{ margin: "10px 0px", marginLeft:"20px", marginRight:"40px" }} />
+          <div className={classes.msg}>
             <strong>
               Please put all your quries in comment box we will get back to you
               asap
             </strong>
           </div>
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "10px 0px", marginLeft:"20px", marginRight:"40px" }} />
           <div style={{width:"100%"}}>
           <CommentSection post={post} />
           </div>
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ marginTop: "20px" }} />
         </div>
       </div>
       {!!recommendedCourses.length && (
         <div className={classes.section}>
-          <div>
+          <Typography gutterBottom variant="h6" style={{ color:"blue"}}>
             You might also like:
-          </div>
-          <Divider />
+          </Typography>
+          <Divider style={{ margin: "20px 0" }}  />
           <div className={classes.recommendedCourses}>
             {recommendedCourses.map(
-              ({ title, name, message, likes, selectedFile, _id }) => (
+              ({ title, name, description, likes, selectedFile, _id }) => (
                 <>
                 <div
-                  style={{ margin: "20px", cursor: "pointer" }}
+                  className={classes.suggestioncard}
                   onClick={() => openCourse(_id)}
                   key={_id}
                 >
                   <div>
-                    {title}
+                    Course : {title}
                   </div>
                   <div>
-                    {name}
+                    Author : {name}
                   </div>
                   <div>
-                    {message}
+                    Course Description : {description}
                   </div>
                   <div>
                     Likes: {likes.length}

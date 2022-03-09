@@ -50,15 +50,15 @@ const Home = () => {
       <Container maxWidth="xl">
         <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
         <Grid position="static" color="inherit" className={classes.searchCourses}>
-          <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Courses" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+          <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Courses" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} style={{backgroundColor:"white", borderRadius:"10px"}}/>
               <ChipInput
-                style={{ margin: '10px 0' }}
                 value={tags}
                 onAdd={(chip) => handleAddChip(chip)}
                 onDelete={(chip) => handleDeleteChip(chip)}
                 label="Search Tags"
                 variant="outlined"
                 className={classes.searchByTags}
+                style={{backgroundColor:"white", borderRadius:"10px", margin:"20px",marginLeft:"0px"}}
               />
               <br/>
               <Button onClick={searchCourse} className={classes.searchButton} variant="contained" color="primary">Search</Button>

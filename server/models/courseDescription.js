@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const courseSchema = mongoose.Schema({
     title: String,
-    message: String,
+    description: String,
     name: String,
     creator: String,
     tags: [String],
@@ -16,6 +16,6 @@ const courseSchema = mongoose.Schema({
     },
 })
 
-var CourseMessage = mongoose.model('CourseMessage', courseSchema);
+var Course = mongoose.model('Course', courseSchema);
 
-export default CourseMessage;
+export default Course;

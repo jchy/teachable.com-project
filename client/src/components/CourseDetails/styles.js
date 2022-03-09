@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-    },
+    }
   },
   commentsOuterContainer: {
     display: 'flex',
@@ -41,6 +41,11 @@ export default makeStyles((theme) => ({
     height: '200px',
     overflowY: 'auto',
     marginRight: '30px',
+    marginLeft: '30px',
+    border : "1px solid gray",
+    width:"470px",
+    padding : "10px",
+    borderRadius:"10px"
   },
   skeleton: {
     margin: '10px'
@@ -52,5 +57,62 @@ export default makeStyles((theme) => ({
   },
   skeletonRight : {
     borderRadius: '20px'
+  },
+  comments :{
+    color : "blue"
+  },
+  title : {
+    fontSize:'20px',
+    paddingLeft: '30px',
+  },
+  titleS : {
+    fontWeight:'bold',
+    fontSize:'20px'
+  },
+  titleSS : {
+    fontSize:'12px',
+    marginLeft:"10px"
+  },
+  tags : {
+    fontSize:'14px',
+    paddingLeft: '30px',
+  },
+  description : {
+    fontSize:'16px',
+    paddingLeft: '30px',
+    padding: '10px',
+    marginBottom: '0px'
+  },
+  descriptionH : {
+    fontSize:'20px',
+    fontWeight:'bold',
+    marginTop: '-5px',
+
+  },
+  descriptionB : {
+    paddingLeft: '30px',
+    marginTop: '-20px'
+  },
+  createdBy : {
+    fontSize: '16px',
+    paddingLeft: '30px'
+  },
+  createdByS : {
+    fontSize: '18px',
+    fontWeight:'bold'
+  },
+  timing : {
+    fontSize: '12px',
+    paddingLeft: '30px',
+  },
+  msg : {
+    height:"20px",
+    marginLeft:"50px",
+    marginRight:"50px"
+  },
+  suggestioncard:{
+    border: '1px solid black',
+    borderRadius: '10px',
+    padding: '10px'
   }
 }));

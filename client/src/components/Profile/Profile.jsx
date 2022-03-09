@@ -12,9 +12,10 @@ const Profile = () => {
       <div
         style={{
           textAlign: "center",
-          border: ".1px solid gray",
+          height:"800px",
           padding: "2%",
-          width: "33%"
+          width: "33%",
+          backgroundColor:"whitesmoke"
         }}
       >
         <div style={{ textAlign: "center"}}>
@@ -24,18 +25,18 @@ const Profile = () => {
                 ? (userData?.imageUrl)
                 : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
             }
-            style={{ borderRadius: "50%", border: ".1px solid gray", height: "100px"}}
+            style={{ borderRadius: "50%", height: "100px"}}
           />
-          <p>Profile Pic</p>
+          <p style={{color:"blue"}}>Profile Pic</p>
         </div>
-        <div style={{ textAlign: "left" }}>
-          <p>Name : {userData?.name}</p>
-          <p>Eamil : {userData?.email}</p>
-          <p>User Id : {userData?._id ? userData?._id : userData?.googleId}</p>
+        <div style={{ textAlign: "left", marginLeft: "100px"}}>
+          <p> <span style={{ fontWeight: "bold" }}>Name :</span> {userData?.name}</p>
+          <p><span style={{ fontWeight: "bold" }}>Email :</span> {userData?.email}</p>
+          <p><span style={{ fontWeight: "bold" }}>User ID :</span> {userData?._id ? userData?._id : userData?.googleId}</p>
         </div>
       </div>
       <div
-        style={{ textAlign: "left", border: ".1px solid gray", padding: "3%", width:"55%" }}
+        style={{ textAlign: "left",  padding: "3%", width:"55%", backgroundColor:"white"}}
       >
         <h2>About Me</h2>
         <p>
@@ -55,6 +56,8 @@ const Profile = () => {
           satisfaction scores were 15 percent over the company average.”
         </p>
       </div>
+      
+
     </>
   );
 };
