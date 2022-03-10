@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-import postRoutes from './routes/courses.js';
+import courseRoutes from './routes/courses.js';
 import userRouter from "./routes/user.js";
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/posts', postRoutes);
+app.use('/courses', courseRoutes);
 app.use("/user", userRouter);
 
 const CONNECTION_URL = 'mongodb+srv://jaswantchaudhary:jaswantchaudhary123@cluster0.awjw4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';

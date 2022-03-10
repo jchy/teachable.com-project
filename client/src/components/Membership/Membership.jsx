@@ -75,6 +75,7 @@ export default function Membership() {
                 <li>Subscribe any course</li>
                 <li>Update your course content's at any time</li>
                 <li>Delete courses at any time</li>
+                <li>Instantly update courses</li>
                 <li>Valid till 6 Months</li>
                 <li style={{textDecoration : "line-through", color:"red"}}>Pay ₹999/Six Months</li>
                 <li>Pay ₹699/Six Months</li>
@@ -100,6 +101,7 @@ export default function Membership() {
                 <li>Subscribe any course</li>
                 <li>Update your course content's at any time</li>
                 <li>Delete courses at any time</li>
+                <li>Instantly update courses</li>
                 <li>Valid till 1 year</li>
                 <li style={{textDecoration : "line-through", color:"red"}}>Pay ₹1899/Year</li>
                 <li>Pay ₹1299/Year</li>

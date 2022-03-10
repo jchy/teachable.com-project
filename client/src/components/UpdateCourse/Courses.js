@@ -8,10 +8,10 @@ import useStyles from './CoursesStyles';
 import Skeleton from '@mui/material/Skeleton';
 
 const Courses = ({ setCurrentId }) => {
-  const { posts, isLoading } = useSelector((state) => state.posts);
+  const { courses, isLoading } = useSelector((state) => state.courses);
   const classes = useStyles();
-  if(!posts.length && !isLoading)
-    return 'No posts';
+  if(!courses.length && !isLoading)
+    return 'No courses';
   const user = JSON.parse(localStorage.getItem('profile'));
    
   return (
@@ -29,9 +29,9 @@ const Courses = ({ setCurrentId }) => {
           </Grid>
     ))}</Grid>) : (
       <Grid className={classes.container} container alignItems="stretch" spacing={6}>
-        {posts?.map((post) => ((user?.result?.googleId === post?.creator || user?.result?._id === post?.creator))?
-          (<Grid key={post._id} item xs={12} sm={12} md={6} lg={6} >
-            <Course post={post} setCurrentId={setCurrentId} />
+        {courses?.map((course) => ((user?.result?.googleId === course?.creator || user?.result?._id === course?.creator))?
+          (<Grid key={course._id} item xs={12} sm={12} md={6} lg={6} >
+            <Course course={course} setCurrentId={setCurrentId} />
           </Grid>):null
         )}
       </Grid>

@@ -10,26 +10,26 @@ import { useHistory } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 
 
-import { likeCourse, deleteCourse } from '../../../actions/posts';
+import { likeCourse, deleteCourse } from '../../../actions/courses';
 import useStyles from './styles';
 
-const Course = ({ post, setCurrentId }) => {
+const Course = ({ course, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
-  const [likes, setLikes] = useState(post?.likes);
+  const [likes, setLikes] = useState(course?.likes);
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
 
   const userId = user?.result.googleId || user?.result?._id;
-  const hasLikedCourse = post.likes.find((like) => like === userId);
+  const hasLikedCourse = course.likes.find((like) => like === userId);
 
   const handleLike = async () => {
-    dispatch(likeCourse(post._id));
+    dispatch(likeCourse(course._id));
 
     if (hasLikedCourse) {
-      setLikes(post.likes.filter((id) => id !== userId));
+      setLikes(course.likes.filter((id) => id !== userId));
     } else {
-      setLikes([...post.likes, userId]);
+      setLikes([...course.likes, userId]);
     }
   };
 
@@ -47,32 +47,33 @@ const Course = ({ post, setCurrentId }) => {
   };
 
   const openCourse = (e) => {
-    history.push(`/posts/${post._id}`);
+    history.push(`/courses/${course._id}`);
   };
 
   return (
-    <div>
+    <div style={{height: '500px'}}>
     <Card className={classes.card} raised elevation={6} style={{backgroundColor:"whitesmoke"}} >
-    <ReactPlayer controls url={post.selectedFile} height='188px' width="335px" />
+    <ReactPlayer controls url={course.selectedFile} height='180px' width="310px" style={{backgroundColor:"black"}}/>
       <ButtonBase
         component="span"
         name="test"
         className={classes.cardAction}
         onClick={openCourse}
+        style={{overflow: 'scroll'}}
       >
-        {/* <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} /> */}
+        {/* <CardMedia className={classes.media} image={course.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={course.title} /> */}
        
         <div className={classes.details}>
-          <Typography variant="h6">{post.name}</Typography>
-          <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+          <Typography variant="h6">{course.name}</Typography>
+          <Typography variant="body2" style={{fontSize:"12px",paddingTop:"8px"}}>{moment(course.createdAt).fromNow()}</Typography>
         </div>
         <div className={classes.details}>
-          <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+          <Typography variant="body2" color="textSecondary" component="h2">{course.tags.map((tag) => `#${tag} `)}</Typography>
         </div>
-        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
-        <Typography className={classes.title} gutterBottom variant="h6" component="h2">Price: ₹{post.price}</Typography>
+        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{course.title}</Typography>
+        <Typography className={classes.title} gutterBottom variant="h6" component="h2">Price: ₹{course.price}</Typography>
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p" >{post.description.split(' ').splice(0, 20).join(' ')}...</Typography>
+          <Typography variant="body2" color="textSecondary" component="p" >{course.description.split(' ').splice(0, 20).join(' ')}...</Typography>
         </CardContent>
       </ButtonBase>
       
@@ -80,8 +81,8 @@ const Course = ({ post, setCurrentId }) => {
         <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike} >
           <Likes />
         </Button>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <Button size="small" color="secondary" onClick={() => dispatch(deleteCourse(post._id))}>
+        {(user?.result?.googleId === course?.creator || user?.result?._id === course?.creator) && (
+          <Button size="small" color="secondary" onClick={() => dispatch(deleteCourse(course._id))}>
             <DeleteIcon fontSize="small" /> &nbsp; Delete
           </Button>
         )}

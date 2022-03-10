@@ -8,12 +8,12 @@ import ChipInput from 'material-ui-chip-input';
 import { Link } from "react-router-dom";
 import StorageIcon from '@mui/icons-material/Storage';
 
-import { createCourse, updateCourse } from '../../actions/posts';
+import { createCourse, updateCourse } from '../../actions/courses';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setCourseData] = useState({ title: '', description: '', price: 0, tags: [], selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.posts.find((description) => description._id === currentId) : null));
+  const [courseData, setCourseData] = useState({ title: '', description: '', price: 0, tags: [], selectedFile: '' });
+  const course = useSelector((state) => (currentId ? state.courses.courses.find((description) => description._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -25,18 +25,18 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   useEffect(() => {
-    if (!post?.title) clear();
-    if (post) setCourseData(post);
-  }, [post]);
+    if (!course?.title) clear();
+    if (course) setCourseData(course);
+  }, [course]);
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
     if (currentId === 0) {
-      dispatch(createCourse({ ...postData, name: user?.result?.name }, history));
+      dispatch(createCourse({ ...courseData, name: user?.result?.name }, history));
       clear();
-      alert('Your post has been created successfully');
+      alert('Your course has been created successfully');
     } else {
-       dispatch(updateCourse(currentId, { ...postData, name: user?.result?.name }));
+       dispatch(updateCourse(currentId, { ...courseData, name: user?.result?.name }));
       clear();
     }
   };
@@ -62,20 +62,20 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   const handleAddChip = (tag) => {
-    setCourseData({ ...postData, tags: [...postData.tags, tag] });
+    setCourseData({ ...courseData, tags: [...courseData.tags, tag] });
   };
 
   const handleDeleteChip = (chipToDelete) => {
-    setCourseData({ ...postData, tags: postData.tags.filter((tag) => tag !== chipToDelete) });
+    setCourseData({ ...courseData, tags: courseData.tags.filter((tag) => tag !== chipToDelete) });
   };
 
   return (
     <Paper className={classes.paper} elevation={6} >
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : 'Create a new Course'}</Typography>
-        <TextField name="title" variant="outlined" label="Course Title" fullWidth value={postData.title} onChange={(e) => setCourseData({ ...postData, title: e.target.value })} />
-        <TextField name="description" variant="outlined" label="Course Description" fullWidth multiline rows={4} value={postData.description} onChange={(e) => setCourseData({ ...postData, description: e.target.value })} />
-        <TextField name="price" variant="outlined" label="Course Price" fullWidth value={postData.price} onChange={(e) => setCourseData({ ...postData, price: e.target.value })} />
+        <Typography variant="h6">{currentId ? `Editing "${course?.title}"` : 'Create a new Course'}</Typography>
+        <TextField name="title" variant="outlined" label="Course Title" fullWidth value={courseData.title} onChange={(e) => setCourseData({ ...courseData, title: e.target.value })} />
+        <TextField name="description" variant="outlined" label="Course Description" fullWidth multiline rows={4} value={courseData.description} onChange={(e) => setCourseData({ ...courseData, description: e.target.value })} />
+        <TextField name="price" variant="outlined" label="Course Price" fullWidth value={courseData.price} onChange={(e) => setCourseData({ ...courseData, price: e.target.value })} />
         
         <div style={{ padding: '5px 0', width: '94%' }}>
           <ChipInput
@@ -83,12 +83,12 @@ const Form = ({ currentId, setCurrentId }) => {
             variant="outlined"
             label="Add course tags"
             fullWidth
-            value={postData.tags}
+            value={courseData.tags}
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
           />
         </div>
-        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setCourseData({ ...postData, selectedFile: base64 })} /></div>
+        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setCourseData({ ...courseData, selectedFile: base64 })} /></div>
         <div>
         <div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit">Submit</Button>

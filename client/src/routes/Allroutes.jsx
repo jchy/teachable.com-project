@@ -25,13 +25,13 @@ const AllRoutes = () => {
         <Route path="/membership" exact > {" "} <Membership /></Route>
         <Route path="/profile" exact > {" "} <Profile /></Route>
         <Route path="/updatecourses" exact > {" "} <UpdateCourses /></Route>
-        <Route path="/" exact component={() => <Redirect to="/posts" />} />
-        <Route path="/posts" exact component={Home} />
-        <Route path="/posts/search" exact component={Home} />
-        <Route path="/posts/:id" exact component={CourseDetails} />
+        <Route path="/" exact component={() => <Redirect to="/courses" />} />
+        <Route path="/courses" exact component={Home} />
+        <Route path="/courses/search" exact component={Home} />
+        <Route path="/courses/:id" exact component={CourseDetails} />
         {/* <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} /> */}
         <Route path={['/creators/:name', '/tags/:name']} > <CreatorOrTag/> </Route>
-        {/* <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} /> */}
+        {/* <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/courses" />)} /> */}
         <Route path="/auth" exact> <Auth/> </Route>
       </Switch>
       </div>

@@ -31,7 +31,9 @@ export default makeStyles((theme) => ({
     display: 'flex',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-    }
+    },
+    gap:"2rem",
+    padding:"20px"
   },
   commentsOuterContainer: {
     display: 'flex',

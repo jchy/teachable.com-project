@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 
-import { getCoursesBySearch } from "../../actions/posts";
+import { getCoursesBySearch } from "../../actions/courses";
 import Courses from "./Courses";
 import Form from "../Form/Form";
 import Pagination from "./Pagination";
@@ -38,7 +38,7 @@ const UpdateCourse = () => {
     if (search.trim() || tags) {
       dispatch(getCoursesBySearch({ search, tags: tags.join(",") }));
       history.push(
-        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
+        `/courses/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
       );
     } else {
       history.push("/");
