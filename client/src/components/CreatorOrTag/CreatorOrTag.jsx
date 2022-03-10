@@ -30,7 +30,7 @@ const CreatorOrTag = () => {
       {isLoading ? <CircularProgress /> : (
         <Grid container alignItems="stretch" spacing={3}>
           {courses?.map((course) => (
-            <Grid key={course._id} item xs={12} sm={12} md={6} lg={3}>
+            <Grid key={course._id} item xs={12} sm={12} md={6} lg={4}>
               <Course course={course} />
             </Grid>
           ))}
