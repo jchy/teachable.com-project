@@ -9,12 +9,13 @@ container:{
     paddingTop:"20px"
     },
   card: {
-    border: '1px solid gray',
+    border: '1px solid black',
     padding : '10px',
     borderRadius : '10px',
     color : "white",
     backgroundColor :'blue',
-    width : '220px',
+    width : '200px',
+    height:"400px"
   },
   subscriptiontitle : {
       color : "red"

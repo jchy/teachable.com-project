@@ -7,7 +7,7 @@ export const getCourse = (id) => async (dispatch) => {
 
     const { data } = await api.fetchCourse(id);
 
-    dispatch({ type: FETCH_POST, payload: { post: data } });
+    dispatch({ type: FETCH_POST, payload: { course: data } });
   } catch (error) {
     console.log(error);
   }
@@ -49,22 +49,22 @@ export const getCoursesBySearch = (searchQuery) => async (dispatch) => {
   }
 };
 
-export const createCourse = (post, history) => async (dispatch) => {
+export const createCourse = (course, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.createCourse(post);
+    const { data } = await api.createCourse(course);
 
     dispatch({ type: CREATE, payload: data });
 
-    history.push(`/posts/${data._id}`);
+    history.push(`/courses/${data._id}`);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const updateCourse = (id, post) => async (dispatch) => {
+export const updateCourse = (id, course) => async (dispatch) => {
   try {
-    const { data } = await api.updateCourse(id, post);
+    const { data } = await api.updateCourse(id, course);
 
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
