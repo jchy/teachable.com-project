@@ -64,12 +64,12 @@ export default function Navbar() {
                     <Dropdown/>
                 </div>
                 <div className={style.login}>
-                    <Link to="/login" className={style.link} onClick={()=>handleText("login")}>Log in</Link>
+                    <a href="https://lms-client-server-app.netlify.app/auth" className={style.link} onClick={()=>handleText("login")}>Log in</a>
                     <div className={"login"===text? style.border: ""}></div>
                 </div>
             </div>
             <div className={style.getstarted}>
-                <Link to="/sign_up" className={style.link} onClick={()=>handleText("sign_up")}>Get started</Link>
+                <a href="https://lms-client-server-app.netlify.app/auth" className={style.link} onClick={()=>handleText("sign_up")}>Get started</a>
                 <div className={"sign_up"===text? style.border: ""}></div>
             </div>
             <div className={style.menuicon} onClick={handleOpen}>

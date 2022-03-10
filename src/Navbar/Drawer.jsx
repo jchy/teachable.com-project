@@ -50,11 +50,11 @@ export default function Drawer() {
             </div>
             <div className={style.drawerbottom}>
                 <div className={style.drawerlogin}>
-                    <Link to="/login" className={style.drawerlink} onClick={()=>handleText("login")}>Log in</Link>
+                    <a href="https://lms-client-server-app.netlify.app/auth" className={style.drawerlink} onClick={()=>handleText("login")}>Log in</a>
                     <div className={"login"===text? style.border: ""}></div>
                 </div>
                 <div className={style.drawergetstarted}>
-                    <Link to="/sign_up" className={style.drawerlink} onClick={()=>handleText("sign_up")}>Get started</Link>
+                    <a href="https://lms-client-server-app.netlify.app/auth" className={style.drawerlink} onClick={()=>handleText("sign_up")}>Get started</a>
                     <div className={"sign_up"===text? style.border: ""}></div>
                 </div>
             </div>

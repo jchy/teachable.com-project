@@ -21,7 +21,7 @@ export default function Examples(){
         <div>
             <div className={style.box1}>
                 <p>The best online courses live on <span>Teachable</span>. From passion projects to multi-million dollar businesses, entrepreneurs trust us to help build and grow their <span>knowledge businesses.</span> Ready to join?</p>
-                <Link to="/sign_up" className={style.link}>Start for free</Link>
+                <a href='https://lms-client-server-app.netlify.app/auth' className={style.link}>Start for free</a>
             </div>
             <div className={style.box3}>
                 <div className={style.linkbox}>

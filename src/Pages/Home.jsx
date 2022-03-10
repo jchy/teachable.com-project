@@ -14,7 +14,7 @@ export default function Home() {
                     <div className={style.inputbox}>
                         <input type="text" placeholder="Your email here" />
                         <div>
-                            <Link to="/sign_up" className={style.link}>Get Started</Link>
+                            <a href="https://lms-client-server-app.netlify.app/auth" className={style.link}>Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export default function Home() {
             <div className={style.box3}>
                 <img src="/images/image2.jpg" alt="" />
                 <p>Build a course, build a brand, build a business. <br /> Here is what Teachable can do for you.</p>
-                <Link to="/sign_up" className={style.box3link}>Get Started for free</Link>
+                <a href="https://lms-client-server-app.netlify.app/auth" className={style.box3link}>Get Started for free</a>
             </div>
 
             <div className={style.box4}>
