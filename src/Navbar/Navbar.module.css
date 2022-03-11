@@ -47,6 +47,7 @@
 .getstarted{
     border-left: 1px solid black;
     padding: 20px;
+    margin-left: 80px;
 }
 
 .menuicon{
@@ -109,7 +110,7 @@
     }
     .menuicon{
         display: block;
-        margin-left: 50%;
+        margin-left: 55%;
         cursor: pointer;
     }
     .drawer{
