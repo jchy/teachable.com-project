@@ -107,7 +107,7 @@ const MySchool = () => {
 
   return (
     <>
-      <div> <ErrorIcon/> You are already signed in.</div>
+      <div style={{display: "flex", margin:"40px", padding:"10px", backgroundColor:"rgb(255,247,220)"}}> <div style={{color:"red", marginRight:"20px"}}><ErrorIcon/></div> <div style={{fontSize:"14px"}}>You are already signed in.</div> </div>
       <div style={{ paddingLeft: "50px" }}>
         <p style={{ textAlign: "left" }}>Schools I Own</p>
         <div>

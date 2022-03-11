@@ -13,6 +13,13 @@ import CreatorOrTag from '../components/CreatorOrTag/CreatorOrTag';
 import UpdateCourses from '../components/UpdateCourse/UpdateCourse';
 import { Redirect } from 'react-router-dom';
 import MySchool from "../components/MySchools/Home";
+import CreateSchool from '../components/CreateSchool/CreateSchool'
+import TellUs from '../components/CreateSchool/TellUs'
+import Welcome from '../components/CreateSchool/Welcome'
+import ChooseProduct from '../components/CreateSchool/ChooseProduct'
+
+
+
 
 const AllRoutes = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
@@ -31,6 +38,10 @@ const AllRoutes = () => {
             <Route path="/" exact component={() => <Redirect to="/myschools" />} />
             <Route path="/courses" exact component={Home} />
             <Route path="/myschools" exact component={MySchool} />
+            <Route path="/myschools/createnewschool" exact component={CreateSchool} />
+            <Route path="/myschools/createnewschool/tellus" exact component={TellUs} />
+            <Route path="/myschools/createnewschool/tellus/welcome" exact component={Welcome} />
+            <Route path="/myschools/createnewschool/tellus/welcome/chooseproduct" exact component={ChooseProduct} />
             <Route path="/courses/search" exact component={Home} />
             <Route path="/courses/:id" exact component={CourseDetails} />
             {/* <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} /> */}

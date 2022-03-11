@@ -103,10 +103,9 @@ const SideNavbar = () => {
               <div>
                 {user?.result ? (
                   <div className={classes.profile}>
-                      <Link to="/profile" className={classes.brandContainer}>
+                      <Link to="/profile" className={classes.brandContainer} >
                          <img src={user?.result.imageUrl ? (user?.result.imageUrl) : "https://us.123rf.com/450wm/happyvector071/happyvector0711904/happyvector071190415714/121105442-creative-illustration-of-default-avatar-profile-placeholder-isolated-on-background-art-design-grey-p.jpg?ver=6"} alt={user?.result.name.charAt(0)} width="90px" style={{ borderRadius:"50%", border:"1.5px solid #DDDDDD"}}/>
                       </Link>
-                   
                     <div>
                       <Link to="/profile" className={classes.brandContainer}>
                         <p className={classes.userName}>
@@ -135,7 +134,7 @@ const SideNavbar = () => {
           </section>
           {/* school sectiomn navbar */}
           <section style={{paddingLeft: "20px"}}>
-            <Link to="/myschools" style={{ color: "black", textDecoration : "none"}}>
+            <Link to="/myschools" style={{ color: "grey", textDecoration : "none"}}>
               <div
                 style={{
                   display: "flex",
@@ -150,7 +149,7 @@ const SideNavbar = () => {
                 <div>MY SCHOOLS</div>
               </div>
             </Link>
-            <Link style={{ color: "black",textDecoration : "none" }}>
+            <Link to='myschools/createnewschool' style={{ color: "grey",textDecoration : "none" }}>
               <div
                 style={{
                   display: "flex",
@@ -165,7 +164,7 @@ const SideNavbar = () => {
                 <div>CREATE NEW SCHOOLS</div>
               </div>
             </Link>
-            <Link style={{ color: "black",textDecoration : "none" }}>
+            <Link style={{ color: "grey",textDecoration : "none" }}>
               <div
                 style={{
                   display: "flex",
@@ -180,7 +179,7 @@ const SideNavbar = () => {
                 <div>SETTINGS</div>
               </div>
             </Link>
-            <Link style={{ color: "black" , textDecoration : "none"}}>
+            <Link style={{ color: "grey" , textDecoration : "none"}}>
               <div
                 style={{
                   display: "flex",
@@ -195,7 +194,7 @@ const SideNavbar = () => {
                 <div>BILLINGS</div>
               </div>
             </Link>
-            <Link style={{ color: "black",textDecoration : "none" }}>
+            <Link style={{ color: "grey",textDecoration : "none" }}>
               <div
                 style={{
                   display: "flex",
@@ -217,6 +216,7 @@ const SideNavbar = () => {
                 gap: ".5rem",
                 padding: "15px 30px",
                 cursor: "pointer",
+                color: "grey"
               }}
               onClick={logout}
             >
