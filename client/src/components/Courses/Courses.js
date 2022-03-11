@@ -27,13 +27,13 @@ const Courses = ({ setCurrentId }) => {
           <br/>
           </Grid>
     ))}</Grid>) : (
-      <Grid className={classes.container} container alignItems="stretch" spacing={6}>
+      <div style={{display: 'flex', flexWrap:"wrap", width: '100%', gap:"1rem", justifyContent: 'center'}}>
         {courses?.map((course) => (
-          <Grid key={course._id} item xs={12} sm={12} md={6} lg={6} >
+          <div>
             <Course course={course} setCurrentId={setCurrentId} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
     )
   );
 };
