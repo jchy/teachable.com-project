@@ -1,0 +1,12 @@
+.text{
+    width:"50%"
+};
+
+@media screen and (max-width: 600px) {
+    .reactplayer{
+        width: 100%;
+    }
+    .text{
+        width: 100%;
+    }
+}

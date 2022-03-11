@@ -5,9 +5,7 @@ export default makeStyles(() => ({
     justifyContent: 'space-around',
   },
   container : {
-    // backgroundColor:"whitesmoke",
     width:"260px",
-    // borderRight : "1px solid grey",
     marginRight : "20px"
   },
   links : {
@@ -18,5 +16,11 @@ export default makeStyles(() => ({
     padding:"8px",
     flexWrap: 'wrap',
     color : 'black'
+  },
+  brandContainer : {
+    textDecoration:"none",
+    color : "black",
+    fontSize : "16px",
+    lineHeight : "20px"
   }
 }));

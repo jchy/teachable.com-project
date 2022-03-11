@@ -9,9 +9,9 @@ const App = () => {
   return (
     <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <Container maxWidth="xl">
+      {/* <Container > */}
         <AllRoutes />
-      </Container>
+      {/* </Container> */}
       </ThemeProvider>
     </BrowserRouter>
   );
