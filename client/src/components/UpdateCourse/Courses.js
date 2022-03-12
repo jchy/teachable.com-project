@@ -17,7 +17,7 @@ const Courses = ({ setCurrentId }) => {
   return (
     isLoading ?  (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-      { [1,2,3,4].map((item) => (
+      { [1,2].map((item) => (
         <Grid item xs={12} sm={12} md={6} lg={6}>
           <Skeleton variant="rectangular" width={210} height={180} className={classes.skeleton}/>
           <Skeleton variant="rectangular" width={100} className={classes.skeleton}/>
@@ -28,13 +28,13 @@ const Courses = ({ setCurrentId }) => {
           <br/>
           </Grid>
     ))}</Grid>) : (
-      <Grid className={classes.container} container alignItems="stretch" spacing={6}>
+      <div>
         {courses?.map((course) => ((user?.result?.googleId === course?.creator || user?.result?._id === course?.creator))?
-          (<Grid key={course._id} item xs={12} sm={12} md={6} lg={6} >
+          (<div key={course._id}  >
             <Course course={course} setCurrentId={setCurrentId} />
-          </Grid>):null
+          </div>):null
         )}
-      </Grid>
+      </div>
     )
   );
 };

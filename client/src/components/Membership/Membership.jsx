@@ -8,7 +8,7 @@ export default function Membership() {
         <div className={classes.benefits}>
           <h1 style={{color : "#03BE12 "}}>Become a member</h1>
           <ul>
-            <li style={{color : "turquoise", fontSize : "20px"}}>Benefits of being a member</li>
+            <li style={{color : "teal", fontSize : "20px"}}>Benefits of being a member</li>
             <ol style={{listStyle : "none"}}>
              <p >
               <li> ✅ You will be able to create your own courses</li>
@@ -45,6 +45,7 @@ export default function Membership() {
                 <li>View all the courses</li>
                 <li>Like any course</li>
                 <li>Subscribe any course</li>
+                <li>Creat your school</li>
                 <li>Update your course content's at any time</li>
                 <li>Delete courses at any time</li>
                 <li>Valid till 3 Months</li>

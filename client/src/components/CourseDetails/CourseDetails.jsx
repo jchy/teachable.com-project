@@ -129,7 +129,7 @@ const Course = () => {
 
   return (
     <div
-      style={{ width: "70%", backgroundColor: "white", borderRadius: "5px" }}
+      style={{ borderRadius: "5px",marginLeft:"80px",marginRight:"200px",marginTop:"50px", border:"1px solid #C2C2C2", backgroundColor:"white" }}
     >
       <div className={classes.card}>
         <div className={classes.section}>
@@ -138,7 +138,7 @@ const Course = () => {
               controls
               url={course.selectedFile}
               height="600px"
-              width="800px"
+              width="750px"
             />
           </div>
           <div
@@ -146,6 +146,8 @@ const Course = () => {
               background: "whitesmoke",
               margin: "20px",
               marginRight: "40px",
+              width: "90%",
+              paddingTop: "20px"
             }}
           >
             <div className={classes.title}>
@@ -200,7 +202,7 @@ const Course = () => {
               marginRight: "40px",
             }}
           />
-          <div className={classes.msg}>
+          <div className={classes.msg} >
             <strong>
               Please put all your quries in comment box we will get back to you
               asap
@@ -211,20 +213,21 @@ const Course = () => {
               margin: "10px 0px",
               marginLeft: "20px",
               marginRight: "40px",
+             
             }}
           />
-          <div style={{ width: "100%" }}>
+          <div >
             <CommentSection course={course} />
           </div>
-          <Divider style={{ marginTop: "20px" }} />
+          <Divider style={{ marginTop: "30px" , marginLeft:"30px",width: "90%"}} />
         </div>
       </div>
       {!!recommendedCourses.length && (
-        <div className={classes.section}>
-          <Typography gutterBottom variant="h6" style={{ color: "blue" }}>
+        <div className={classes.section} style={{ marginLeft:"50px"}}>
+          <Typography gutterBottom variant="h6" >
             You might also like:
           </Typography>
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "10px 0px",width: "94%"}} />
           <div className={classes.recommendedCourses}>
             {recommendedCourses.map(
               ({ title, name, description, likes, selectedFile, _id }) => (
@@ -232,17 +235,16 @@ const Course = () => {
                   <div
                     onClick={() => openCourse(_id)}
                     key={_id}
-                    style={{width: "250px", height: "400px",overflow: "scroll", backgroundColor: "whitesmoke", borderRadius:"10px",border:"1px solid gray"}}
+                    style={{width: "300px", height: "350px",overflow: "scroll", backgroundColor: "whitesmoke", borderRadius:"10px",border:"1px solid gray"}}
                   >
                     <div style={{backgroundColor:"black"}}>
                       <ReactPlayer
                         controls
                         url={selectedFile}
                         height="150px"
-                        width="250px"
+                        width="300px"
                       />
-                    </div>
-                                    
+                    </div>            
                     <div style={{padding:"10px"}}>
                     <div> <span style={{fontWeight: "bold"}}>Course :</span> {title}</div>
                     <div><span style={{fontWeight: "bold"}}>Author :</span> {name}</div>

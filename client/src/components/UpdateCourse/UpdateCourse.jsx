@@ -14,7 +14,7 @@ import ChipInput from "material-ui-chip-input";
 
 import { getCoursesBySearch } from "../../actions/courses";
 import Courses from "./Courses";
-import Form from "../Form/Form";
+import Form from "./Form/Form";
 import Pagination from "./Pagination";
 import useStyles from "./styles";
 
@@ -57,61 +57,63 @@ const UpdateCourse = () => {
     setTags(tags.filter((tag) => tag !== chipToDelete));
 
   return (
-        <>
-          <Grow in>
-            <Container maxWidth="xl">
-              <Grid
-                container
-                justify="space-between"
-                alignItems="stretch"
-                spacing={3}
-                className={classes.gridContainer}
-              >
-                <Grid item xs={9} sm={9} md={9}>
-                  <Courses setCurrentId={setCurrentId} />
-                </Grid>
-                <Grid item>
-                  <AppBar
-                    className={classes.appBarSearch}
-                    position="static"
-                    color="inherit"
-                  >
-                    <TextField
-                      onKeyDown={handleKeyPress}
-                      name="search"
-                      variant="outlined"
-                      label="Search Courses"
-                      fullWidth
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <ChipInput
-                      style={{ margin: "10px 0" }}
-                      value={tags}
-                      onAdd={(chip) => handleAddChip(chip)}
-                      onDelete={(chip) => handleDeleteChip(chip)}
-                      label="Search Tags"
-                      variant="outlined"
-                    />
-                    <Button
-                      onClick={searchCourse}
-                      className={classes.searchButton}
-                      variant="contained"
-                      color="primary"
-                    >
-                      Search
-                    </Button>
-                  </AppBar>
-                  <Form currentId={currentId} setCurrentId={setCurrentId} />
-                  {!searchQuery && !tags.length && (
-                    <Paper className={classes.pagination} elevation={6}>
-                      <Pagination page={page} />
-                    </Paper>
-                  )}
-                </Grid>
-              </Grid>
-            </Container>
-          </Grow>
+    <>
+    <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              margin: "50px 100px 50px 100px",
+            }}
+          >
+            <div style={{ width: "35%" }}>
+              <TextField
+                onKeyDown={handleKeyPress}
+                name="search"
+                variant="outlined"
+                fullWidth
+                label="Search Courses"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "none",
+                  height: "55px",
+                }}
+              />
+            </div>
+            <div style={{ width: "35%" }}>
+              <ChipInput
+                value={tags}
+                onAdd={(chip) => handleAddChip(chip)}
+                onDelete={(chip) => handleDeleteChip(chip)}
+                label="Search Tags"
+                variant="outlined"
+                fullWidth
+                style={{ backgroundColor: "white", height: "55px" }}
+              />
+            </div>
+            <div style={{ width: "30%" }}>
+              <button onClick={searchCourse} className={classes.searchButton}>
+                Search
+              </button>
+            </div>
+          </div>
+          <div style={{  margin: "50px 100px 50px 100px", }}>
+            <Courses setCurrentId={setCurrentId} />
+          </div>
+      </div>
+      <Form currentId={currentId} setCurrentId={setCurrentId} />
+      <div>
+        {!searchQuery && !tags.length && (
+          <div>
+            <Pagination page={page} />
+          </div>
+        )}
+      </div>
+      
     </>
   );
 };

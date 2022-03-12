@@ -1,17 +1,17 @@
 
 import {Link} from "react-router-dom";
-import plogo from "../../images/plogo.jpg"
+import plogo from "../../images/plogo.jpg";
 
 const ChooseProduct = () => {
     return (
-        <>
-        <div>
-            <p>Choose a product</p>
+        <div style={{ height: "1024px"}}>
+        <div style={{margin:"200px 200px", marginBottom:"20px"}}>
+            <p style={{fontSize:"35px", lineHeight:"2px"}}>Choose a product</p>
             <p>What kind of product would you like to offer?</p>
         </div>
         <div style={{margin:"0px 200px"}}>
-            <Link style={{textDecoration : "none", color:"black"}}>
-        <div style={{display: 'flex', padding:"10px",  border: '1px solid #C9C9C9', marginBottom: '50px', width: '550px'}}>
+            <Link to="/myschools/createnewschool/tellus/welcome/chooseproduct/form" style={{textDecoration : "none", color:"black"}}>
+        <div style={{display: 'flex', padding:"10px",  border: '1px solid #C9C9C9', marginBottom: '30px', width: '550px', backgroundColor:"white", borderRadius: "5px" }}>
             <div>
             <img src={plogo} alt="course" height="100px"/>
             </div>
@@ -25,8 +25,8 @@ const ChooseProduct = () => {
             </div>
         </div>
         </Link>
-        <Link style={{textDecoration : "none", color:"black"}}>
-        <div style={{display: 'flex', padding:"10px", border: '1px solid #C9C9C9',width: '550px'}}>
+        <Link to="/myschools/createnewschool/tellus/welcome/chooseproduct/form" style={{textDecoration : "none", color:"black"}}>
+        <div style={{display: 'flex', padding:"10px", border: '1px solid #C9C9C9',width: '550px', backgroundColor:"white", borderRadius: "5px"}}>
             <div>
             <img src={plogo} alt="course" height="100px" />
             </div>
@@ -41,7 +41,7 @@ const ChooseProduct = () => {
             </div>
             </Link>
         </div>
-        </>
+        </div>
     )
 }
 export default ChooseProduct;

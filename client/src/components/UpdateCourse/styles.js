@@ -21,8 +21,11 @@ export default makeStyles((theme) => ({
     marginTop: '5rem'
   },
   searchButton:{
-    marginTop: '20px',
-    marginLeft: '10px'
+    padding:"10px 0px",
+    fontSize: '20px',
+    backgroundColor:"#0753B1",
+    color : "white",
+    width: '100%'
   },
   searchByTags:{
     width: '80%'
