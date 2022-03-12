@@ -73,7 +73,7 @@ const MySchool = () => {
             backgroundColor: "rgb(255,247,220)",
             color: "black",
             height: "400px",
-            margin: "20%"
+            margin: "200px 300px"
           }}
         >
           <h2 style={{ paddingLeft: "20px" }}>
@@ -106,7 +106,7 @@ const MySchool = () => {
   }
 
   return (
-    <>
+    <div style={{ height: "1024px"}}>
       <div style={{display: "flex", margin:"40px", padding:"10px", backgroundColor:"rgb(255,247,220)"}}> <div style={{color:"red", marginRight:"20px"}}><ErrorIcon/></div> <div style={{fontSize:"14px"}}>You are already signed in.</div> </div>
       <div style={{ paddingLeft: "50px" }}>
         <p style={{ textAlign: "left" }}>Schools I Own</p>
@@ -114,7 +114,7 @@ const MySchool = () => {
           <Courses setCurrentId={setCurrentId} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const TellUs = () => {
     return (
-        <>
+        <div style={{ height: "1024px"}}>
         <div style={{width:"650px", margin:"100px 100px 20px 200px"}}>
         <div>
             <p style={{fontSize:"30px", fontWeight:"350"}}>Tell us a little more about yourself</p>
@@ -65,7 +65,7 @@ const TellUs = () => {
         <div style={{textAlign:"right", marginRight:"100px", marginTop:"40px"}}>
             <Link to="/myschools/createnewschool/tellus/welcome" style={{marginTop:"20px", textDecoration : "none", color:"white", backgroundColor:"black", padding:"10px 30px",borderRadius:"5px"}}>NEXT</Link>
         </div>
-        </>
+        </div>
     )
 }
 export default TellUs;

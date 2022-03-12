@@ -52,7 +52,7 @@ export default makeStyles({
   },
   cardAction: {
     display: 'block',
-    textAlign: 'initial',
+    textAlign: 'initial'
   },
   editButton : {
     fontSize: '20px',

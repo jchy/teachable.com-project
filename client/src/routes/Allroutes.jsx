@@ -31,11 +31,11 @@ const AllRoutes = () => {
         </div>
         <div>
           <Switch>
-            <Route path="/form" exact > {" "} <Form /></Route>
+            <Route path="/myschools/createnewschool/tellus/welcome/chooseproduct/form" exact > {" "} <Form /></Route>
             <Route path="/membership" exact > {" "} <Membership /></Route>
             <Route path="/profile" exact > {" "} <Profile /></Route>
             <Route path="/updatecourses" exact > {" "} <UpdateCourses /></Route>
-            <Route path="/" exact component={() => <Redirect to="/myschools" />} />
+            <Route path="/" exact component={() => <Redirect to="/courses" />} />
             <Route path="/courses" exact component={Home} />
             <Route path="/myschools" exact component={MySchool} />
             <Route path="/myschools/createnewschool" exact component={CreateSchool} />

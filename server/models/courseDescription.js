@@ -6,7 +6,7 @@ const courseSchema = mongoose.Schema({
     name: String,
     creator: String,
     tags: [String],
-    price: Number,
+    creating: String,
     selectedFile: String,
     likes: { type: [String], default: [] },
     comments: { type: [String], default: [] },

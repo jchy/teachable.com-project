@@ -111,7 +111,7 @@ import ChipInput from "material-ui-chip-input";
 import { Link } from "react-router-dom";
 import StorageIcon from "@mui/icons-material/Storage";
 
-import { createCourse, updateCourse } from "../../actions/courses";
+import { createCourse, updateCourse } from "../../../actions/courses";
 import useStyles from "./styles";
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -187,7 +187,7 @@ const Form = ({ currentId, setCurrentId }) => {
             <li> ✅ Create your own courses</li>
           </p>
           <p>
-            <li> 🖌 Create update your courses</li>
+            <li> 🖌 Update your courses</li>
           </p>
 
           <p>
@@ -219,10 +219,10 @@ const Form = ({ currentId, setCurrentId }) => {
 
   return (
     <div style={{border: "1px solid grey", padding:"20px 70px", width: "540px", borderRadius: "10px", margin:"50px 200px", backgroundColor:"white"}}>
-      <h1 style={{fontWeight: "350"}}>Create your course</h1>
+      <h1 style={{fontWeight: "350"}}>Update your course</h1>
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <div style={{fontSize:"14px", color: "grey"}}>
-          <label>What would you like to name your course?</label>
+          <label>What would you like to rename your course?</label>
         </div>
         <div >
           <input
@@ -236,7 +236,7 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div style={{fontSize:"14px", color: "grey", marginTop:"20px"}}>
-          <label>Describe about your course</label>
+          <label>Update description of the course</label>
         </div>
         <div>
           <input
@@ -265,7 +265,7 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
         <div style={{width:"600px"}}>
         <div  style={{fontSize:"14px", color: "grey", marginTop:"20px"}}>
-          <label>Upload videos for your course</label>
+          <label>Update videos for this course</label>
         </div>
         <div className={classes.fileInput}>
           <FileBase
@@ -280,7 +280,7 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
         <div>
           <div style={{ width: '600px', textAlign: 'center', marginTop:"30px"}}>
-            <button style={{padding:"15px 100px", borderRadius:"50px",backgroundColor: "rgb(28,166,154)", color:"white", fontSize:"18px", border:"1px solid white", cursor: "pointer"}} type="submit">CREATE</button>
+            <button style={{padding:"15px 100px", borderRadius:"50px",backgroundColor: "rgb(28,166,154)", color:"white", fontSize:"18px", border:"1px solid white", cursor: "pointer"}} type="submit">UPDATE</button>
           </div>
           <div style={{ width: '600px', textAlign: 'center', marginTop:"20px"}}>
             <div onClick={clear}  style={{color:"rgb(28,166,154)", cursor:"pointer"}}>

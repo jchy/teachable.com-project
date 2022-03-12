@@ -164,7 +164,7 @@ const SideNavbar = () => {
                 <div>CREATE NEW SCHOOLS</div>
               </div>
             </Link>
-            <Link style={{ color: "grey",textDecoration : "none" }}>
+            <Link to="/updatecourses" style={{ color: "grey",textDecoration : "none" }}>
               <div
                 style={{
                   display: "flex",
@@ -176,10 +176,10 @@ const SideNavbar = () => {
                 <div>
                   <SettingsIcon />
                 </div>
-                <div>SETTINGS</div>
+                <div>UPDATE COURSES</div>
               </div>
             </Link>
-            <Link style={{ color: "grey" , textDecoration : "none"}}>
+            <Link to="/membership" style={{ color: "grey" , textDecoration : "none"}}>
               <div
                 style={{
                   display: "flex",

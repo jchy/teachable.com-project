@@ -122,14 +122,14 @@ const Course = ({ course, setCurrentId }) => {
                   >
                     {course.title}
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     className={classes.title}
                     gutterBottom
                     variant="h6"
                     component="h2"
                   >
                     Price: ₹{course.price}
-                  </Typography>
+                  </Typography> */}
                 </div>
                 <div>
                   <CardContent>

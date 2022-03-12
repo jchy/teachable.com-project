@@ -6,7 +6,6 @@ export default makeStyles((theme) => ({
     objectFit: 'cover',
     width: '60%'
     // maxHeight: '1200px'
-
   },
   card: {
     display: 'flex',
@@ -15,10 +14,11 @@ export default makeStyles((theme) => ({
       flexWrap: 'wrap',
       flexDirection: 'column',
     },
+    marginTop:"-50px"
   },
   section: {
     borderRadius: '20px',
-    margin: '10px',
+    margin: '0px 10px 10px 10px',
     flex: 1,
   },
   imageSection: {
@@ -29,6 +29,9 @@ export default makeStyles((theme) => ({
   },
   recommendedCourses: {
     display: 'flex',
+    flexBasis: '30%',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
@@ -61,7 +64,7 @@ export default makeStyles((theme) => ({
     borderRadius: '20px'
   },
   comments :{
-    color : "blue"
+    color : "black"
   },
   title : {
     fontSize:'20px',
