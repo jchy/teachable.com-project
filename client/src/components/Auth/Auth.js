@@ -56,7 +56,7 @@ const SignUp = () => {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <Container component="main" maxWidth="xs">
+    <div style={{margin:"200px 300px", width:"400px"}}>
       <Paper className={classes.paper} elevation={6}>
         <Avatar className={classes.avatar}>
           <LockIcon />
@@ -78,7 +78,7 @@ const SignUp = () => {
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
           <GoogleLogin
-            clientId="564033717568-bu2nr1l9h31bhk9bff4pqbenvvoju3oq.apps.googleusercontent.com"
+            clientId="433155884077-d5mih3ibp34n41i7ebnb43proncdmdrn.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                 Google Sign In
@@ -97,7 +97,7 @@ const SignUp = () => {
           </Grid>
         </form>
       </Paper>
-    </Container>
+    </div>
   );
 };
 

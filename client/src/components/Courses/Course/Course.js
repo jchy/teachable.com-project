@@ -72,13 +72,13 @@ const Course = ({ course, setCurrentId }) => {
   };
 
   return (
-        <div style={{ display: "flex", flexWrap:"wrap", width:"100%" , backgroundColor:"#FFFFFF", border: ".1px solid gray"}}>
+        <div style={{ display: "flex", flexWrap:"wrap", width:"800px" , backgroundColor:"#FFFFFF", border: ".1px solid gray"}}>
           <div>
             <ReactPlayer
               controls
               url={course.selectedFile}
               width="310px"
-              
+              height="280px"
               style={{ backgroundColor: "black" }}
               className={styles.reactplayer}
             />
