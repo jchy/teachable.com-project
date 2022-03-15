@@ -41,7 +41,7 @@
 #### 1. Landing Page Snapshots
 
 <img width="1440" alt="Screenshot 2022-03-15 at 11 25 25 AM" src="https://user-images.githubusercontent.com/91217491/158317275-f31c41cb-5390-4e91-a65b-56039842855c.png">
-- Fig 1.1
+-Fig 1.1
 
 <img width="1440" alt="Screenshot 2022-03-15 at 11 25 33 AM" src="https://user-images.githubusercontent.com/91217491/158317366-7e7b66d1-b311-4bd9-9783-b4f1d8dc409d.png">
 - Fig 1.2
