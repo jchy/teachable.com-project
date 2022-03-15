@@ -1,6 +1,8 @@
 # teachable.com-project
 
-### To View this Project [Click Here](https://satyamall.github.io/teachable.com-project-code-only-in-react/)
+### To View this Project on Netlify [Click Here](https://teachableproject.netlify.app/)
+
+### To View this Project deployed on gitHub [Click Here](https://satyamall.github.io/teachable.com-project-code-only-in-react/)
 
 ### What is teachable.com ?
 - Teachable (formerly Fedora) is an online learning software company headquartered in New York City with an additional office in Durham.
