@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://lmsserverside.herokuapp.com/' });
+const API = axios.create({ baseURL: 'BACKEND_DEPLOYED_URL' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
