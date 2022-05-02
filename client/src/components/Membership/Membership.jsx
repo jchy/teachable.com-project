@@ -54,7 +54,7 @@ export default function Membership() {
               </ul>
               <div style={{ textAlign:"center"}}>
               <Button variant="contained" color="success" style={{backgroundColor:"red"}}>
-                <a href="https://rzp.io/l/NWkBOiW" style={{textDecoration : "none", color:"white"}}>Checkout Gold</a>
+                <a href="RAZORPAY_INTEGRATION_URL" style={{textDecoration : "none", color:"white"}}>Checkout Gold</a>
               </Button>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Membership() {
               </ul>
               <div style={{ textAlign:"center"}}>
               <Button variant="contained" color="success" style={{backgroundColor:"brown"}}>
-              <a href="https://rzp.io/l/zy6g25YC" style={{textDecoration : "none", color:"white"}}>Checkout Super</a>
+              <a href="RAZORPAY_INTEGRATION_URL" style={{textDecoration : "none", color:"white"}}>Checkout Super</a>
               </Button>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function Membership() {
               </ul>
               <div style={{ textAlign:"center"}}>
               <Button variant="contained" color="success" style={{backgroundColor:"gold", color:"black"}}>
-              <a href="https://rzp.io/l/JoDpZKfq7Z" style={{textDecoration : "none"}}>Checkout Premium</a>
+              <a href="RAZORPAY_INTEGRATION_URL" style={{textDecoration : "none"}}>Checkout Premium</a>
               </Button>
               </div>
             </div>
