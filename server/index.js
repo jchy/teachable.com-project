@@ -15,7 +15,7 @@ app.use(cors());
 app.use('/courses', courseRoutes);
 app.use("/user", userRouter);
 
-const CONNECTION_URL = 'mongodb+srv://jaswantchaudhary:jaswantchaudhary123@cluster0.awjw4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const CONNECTION_URL = process.env.MONGO_ATLAS_CONNECTION_URL;
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
